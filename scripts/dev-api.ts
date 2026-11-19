@@ -9,6 +9,7 @@ import { createServer } from 'node:http';
 import type { WebEntity } from '../packages/core/src/entity';
 import { handleBrazeProfile, handleFlights, handleHealth, type HandlerContext } from '../packages/server/src/handlers';
 import { handleBooking } from '../packages/server/src/booking';
+import { handleConsent, handleMerge } from '../packages/server/src/consent';
 
 type Handler = (req: Request, ctx: HandlerContext) => Response | Promise<Response>;
 const routes: Record<string, Handler> = {
@@ -16,6 +17,8 @@ const routes: Record<string, Handler> = {
   '/api/braze/profile': handleBrazeProfile,
   '/api/health': handleHealth,
   '/api/booking': handleBooking,
+  '/api/consent': handleConsent,
+  '/api/identity/merge': handleMerge,
 };
 
 const PORT = Number(process.env.API_PORT ?? 3000);

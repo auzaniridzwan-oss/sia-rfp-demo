@@ -23,7 +23,7 @@ Every push to `main` deploys both.
 | `packages/react` | `BrazeProvider` and hooks (`useTrack`, `usePageView`, `useContentCards`, `useBanner`, `useBrazeProfile`, `useBooking`) |
 | `packages/ui` | Shared components: `<BrazeDebug />` overlay |
 | `packages/data` | Destinations, ancillary catalogues; SerpAPI fixtures (server-only: `@sia/data/fixtures`) |
-| `packages/server` | Request handlers: `/api/flights` (SerpAPI + cache + fixture fallback), `/api/braze/profile`, `/api/health` |
+| `packages/server` | Request handlers: `/api/flights` (SerpAPI + cache + fixture fallback), `/api/braze/profile`, `/api/booking` (sia_next_trip + catalog), `/api/consent` (sia_consent `$update` + audit events), `/api/identity/merge` (anonymous → CEID), `/api/health` |
 | `braze/schema.json` | Generated event/attribute dictionary (`pnpm schema:export`) |
 | `scripts/` | `dev-api.ts`, `serpapi-spike.ts`, `gen-fixture-index.ts`, `export-schema.ts` |
 
@@ -37,6 +37,8 @@ pnpm dev:sq              # http://localhost:5173
 pnpm dev:tr              # http://localhost:5174
 pnpm test                # unit tests
 ```
+
+Pages: `/` home, `/booking/*` flow, `/manage`, `/login`, `/register`, `/account`, `/preferences` (Group Preference Centre).
 
 Add `?debug=true` (or press Shift+D) to open the Braze debug overlay. Any `@example.com` email in the sign-in harness becomes a `ceid_test_` user.
 

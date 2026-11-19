@@ -66,3 +66,19 @@ describe('misc', () => {
   });
   it('maskEmail', () => expect(maskEmail('zara@example.com')).toBe('z***@example.com'));
 });
+
+describe('consent + merge validation', async () => {
+  const { handleConsent, handleMerge } = await import('./consent');
+  const post = (body: unknown) => new Request('http://x', { method: 'POST', body: JSON.stringify(body), headers: { 'content-type': 'application/json' } });
+  it('rejects non-CEID ids and malformed items', async () => {
+    expect((await handleConsent(post({ external_id: 'zara@example.com', items: [], source_system: 'preference_center' }), { entity: 'SQ', env })).status).toBe(400);
+    expect((await handleConsent(post({ external_id: 'ceid_test_0123456789abcdef', items: [{ id: 'x' }], source_system: 'preference_center' }), { entity: 'SQ', env })).status).toBe(400);
+  });
+  it('503 when REST is not configured', async () => {
+    const item = { id: 'TR_email_promotions', entity: 'TR', channel: 'email', communication_nature: 'promotions', status: 'opted_out', frequency: 'weekly' };
+    expect((await handleConsent(post({ external_id: 'ceid_test_0123456789abcdef', items: [item], source_system: 'preference_center' }), { entity: 'SQ', env })).status).toBe(503);
+  });
+  it('merge only accepts site anonymous aliases', async () => {
+    expect((await handleMerge(post({ external_id: 'ceid_test_0123456789abcdef', anonymous_alias: 'someone-else' }), { entity: 'SQ', env })).status).toBe(400);
+  });
+});

@@ -122,8 +122,8 @@ export const EVENT_CATALOG = {
     props: z.object({ pnr: z.string() }),
   },
   sia_consent_updated: {
-    source: 'sdk',
-    description: 'One event per changed consent item. Loop 2 audit trail and Canvas trigger.',
+    source: 'server',
+    description: 'One event per changed consent item, logged by /api/consent in the same REST call that updates sia_consent (Loop 2 audit trail and Canvas trigger).',
     props: z.object({
       channel: z.enum(CHANNELS),
       communication_nature: z.enum(COMMUNICATION_NATURES),

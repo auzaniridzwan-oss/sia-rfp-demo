@@ -38,24 +38,32 @@ export function useLoyalty(): { tier: LoyaltyTier | null; krisflyerNumber: strin
   return { tier, krisflyerNumber, hasKrisflyer: Boolean(krisflyerNumber || tier) };
 }
 
+const ACCOUNT_EVENT = 'sia-account-changed';
+
 /** Demo account info kept in the browser (display name only). */
 export function useAccount() {
   const { storage, braze } = useSia();
   const externalId = useExternalId();
   const [firstName, setFirstName] = useState<string | null>(() => storage.get<string>('first_name'));
+  // Every useAccount() instance (header, pages) stays in sync via a window event.
+  useEffect(() => {
+    const sync = () => setFirstName(storage.get<string>('first_name'));
+    window.addEventListener(ACCOUNT_EVENT, sync);
+    return () => window.removeEventListener(ACCOUNT_EVENT, sync);
+  }, [storage]);
   useEffect(() => {
     if (!externalId) setFirstName(null);
   }, [externalId]);
   const remember = useCallback(
     (name: string) => {
       storage.set('first_name', name);
-      setFirstName(name);
+      window.dispatchEvent(new Event(ACCOUNT_EVENT));
     },
     [storage],
   );
   const signOut = useCallback(async () => {
     storage.remove('first_name');
-    setFirstName(null);
+    window.dispatchEvent(new Event(ACCOUNT_EVENT));
     await braze.signOut();
   }, [storage, braze]);
   return { externalId, firstName, remember, signOut };

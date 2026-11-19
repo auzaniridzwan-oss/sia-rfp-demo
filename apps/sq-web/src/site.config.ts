@@ -12,6 +12,7 @@ export const site: SiteConfig = {
   nav: [
     { label: 'Book', to: '/' },
     { label: 'Manage booking', to: '/manage' },
+    { label: 'Preferences', to: '/preferences' },
   ],
   hero: {
     bannerPlacement: 'sq_home_hero',

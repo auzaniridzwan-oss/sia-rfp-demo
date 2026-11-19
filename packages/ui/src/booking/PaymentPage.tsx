@@ -1,4 +1,4 @@
-import { bookingTotal, generatePnr, SDK_ATTRIBUTES, type SavedBooking } from '@sia/core';
+import { bookingTotal, generatePnr, type SavedBooking } from '@sia/core';
 import { useBooking, useBraze, usePageView, useSia, useTrack, useTrackOnMount } from '@sia/react';
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -73,8 +73,6 @@ export function PaymentPage() {
       ancillaries_purchased: ancillaryCategories(saved),
     });
     braze.logPurchase(`${entity}_${search.to}_${outbound.fareFamily}`, total, { pnr, cabin_class: outbound.cabin, destination_code: search.to });
-    const seatType = s.seats[0]?.seatType;
-    if (seatType) braze.setAttribute(SDK_ATTRIBUTES.preferenceSeats, seatType);
     save(saved);
     void syncBooking(braze, saved, 'confirm');
     s.confirm(pnr);

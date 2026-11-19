@@ -39,6 +39,10 @@ export interface UserProfileInput {
 type Listener = (a: SdkActivity) => void;
 
 const STORAGE_EXTERNAL_ID = 'braze_external_id';
+const STORAGE_ANON_ALIAS = 'anon_alias';
+const STORAGE_ANON_ACTIVITY = 'anon_activity';
+/** Alias label put on anonymous visitors so their activity can be merged after login. */
+export const ANONYMOUS_ALIAS_LABEL = 'sia_web_anonymous';
 
 /**
  * Thin, typed wrapper around @braze/web-sdk shared by both sites.
@@ -83,6 +87,7 @@ export class BrazeClient {
       const restored = storage.get<string>(STORAGE_EXTERNAL_ID);
       if (restored) sdk.changeUser(restored);
       sdk.openSession();
+      if (!restored) this.ensureAnonymousAlias(sdk);
 
       this.emit({ kind: 'init', name: 'initialize', status: 'sent', payload: { entity: this.entity, baseUrl, restoredUser: restored ?? null } });
       logger.info('braze', `SDK ready (${this.entity})`, { restoredUser: restored ?? null });
@@ -90,6 +95,35 @@ export class BrazeClient {
       this.emit({ kind: 'init', name: 'initialize', status: 'failed', detail: String(e) });
       logger.error('braze', 'SDK init failed', String(e));
     }
+  }
+
+  /**
+   * Give an anonymous visitor a user alias (`{entity}-{deviceId}`), so that if they later
+   * log in to an EXISTING profile — where Braze would orphan the anonymous data — the
+   * server can merge it with /users/merge (docs/BUILD_PLAN.md §3).
+   */
+  private ensureAnonymousAlias(sdk: Sdk) {
+    const { storage } = this.config;
+    if (storage.get<string>(STORAGE_ANON_ALIAS)) return;
+    const deviceId = sdk.getDeviceId();
+    if (!deviceId) return;
+    const alias = `${this.entity}-${deviceId}`;
+    sdk.getUser()?.addAlias(alias, ANONYMOUS_ALIAS_LABEL);
+    storage.set(STORAGE_ANON_ALIAS, alias);
+    this.emit({ kind: 'identity', name: 'addAlias (anonymous)', status: 'sent', payload: { alias_name: alias, alias_label: ANONYMOUS_ALIAS_LABEL } });
+  }
+
+  /**
+   * The anonymous alias to merge after login, if the visitor did anything while anonymous.
+   * Clears the flags so a merge is only requested once.
+   */
+  takeAnonymousAlias(): string | null {
+    const { storage } = this.config;
+    const alias = storage.get<string>(STORAGE_ANON_ALIAS);
+    const active = storage.get<boolean>(STORAGE_ANON_ACTIVITY);
+    storage.remove(STORAGE_ANON_ALIAS);
+    storage.remove(STORAGE_ANON_ACTIVITY);
+    return alias && active ? alias : null;
   }
 
   /** The SDK module once initialised (for content cards / banners hooks). */
@@ -145,6 +179,7 @@ export class BrazeClient {
     const sdk = this.requireSdk(name);
     if (!sdk) return false;
     const ok = sdk.logCustomEvent(name, result.props);
+    if (!this.externalId) this.config.storage.set(STORAGE_ANON_ACTIVITY, true);
     this.emit({ kind: 'event', name, status: ok ? 'sent' : 'failed', payload: result.props });
     return ok;
   }
@@ -198,6 +233,8 @@ export class BrazeClient {
   reset() {
     this.sdk?.wipeData();
     this.config.storage.remove(STORAGE_EXTERNAL_ID);
+    this.config.storage.remove(STORAGE_ANON_ALIAS);
+    this.config.storage.remove(STORAGE_ANON_ACTIVITY);
     this.emit({ kind: 'reset', name: 'wipeData', status: 'sent' });
     // wipeData requires a fresh initialize on next use.
     this.sdk = null;

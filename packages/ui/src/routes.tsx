@@ -8,6 +8,10 @@ import { SeatsPage } from './booking/SeatsPage';
 import { HomePage } from './home/HomePage';
 import { Shell } from './layout/Shell';
 import { ManagePage } from './manage/ManagePage';
+import { AccountPage } from './account/AccountPage';
+import { LoginPage } from './account/LoginPage';
+import { PreferencesPage } from './account/PreferencesPage';
+import { RegisterPage } from './account/RegisterPage';
 
 /** Route tree shared by both sites. */
 export const siteRoutes: RouteObject[] = [
@@ -22,6 +26,10 @@ export const siteRoutes: RouteObject[] = [
       { path: 'booking/payment', element: <PaymentPage /> },
       { path: 'booking/confirmation', element: <ConfirmationPage /> },
       { path: 'manage', element: <ManagePage /> },
+      { path: 'login', element: <LoginPage /> },
+      { path: 'register', element: <RegisterPage /> },
+      { path: 'account', element: <AccountPage /> },
+      { path: 'preferences', element: <PreferencesPage /> },
       { path: '*', element: <HomePage /> },
     ],
   },

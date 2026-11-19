@@ -2,13 +2,11 @@ import { useState } from 'react';
 import { Link, NavLink, Outlet, ScrollRestoration } from 'react-router-dom';
 import { useSite } from '../site';
 import { useAccount } from '../lib';
-import { SignInDialog } from './SignInDialog';
 import { BrazeDebug } from '../BrazeDebug';
 
 export function Shell() {
   const site = useSite();
   const account = useAccount();
-  const [signInOpen, setSignInOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -28,15 +26,17 @@ export function Shell() {
           <div className="ml-auto flex items-center gap-3 md:ml-0">
             {account.externalId ? (
               <div className="flex items-center gap-3 text-sm">
-                <span className="hidden text-heading sm:inline">Hi, {account.firstName ?? 'traveller'}</span>
+                <Link to="/account" className="hidden text-heading hover:underline sm:inline">
+                  Hi, {account.firstName ?? 'traveller'}
+                </Link>
                 <button className="text-link underline" onClick={() => void account.signOut()}>
                   Log out
                 </button>
               </div>
             ) : (
-              <button className="btn-primary px-4 py-2 text-sm" onClick={() => setSignInOpen(true)}>
+              <Link to="/login" className="btn-primary px-4 py-2 text-sm">
                 Log in / Sign up
-              </button>
+              </Link>
             )}
             <button className="md:hidden" aria-label="Menu" aria-expanded={menuOpen} onClick={() => setMenuOpen((v) => !v)}>
               <span className="block h-0.5 w-6 bg-heading" />
@@ -76,7 +76,6 @@ export function Shell() {
         <p className="border-t border-white/15 px-4 py-4 text-center text-xs opacity-70">{site.footer.legal}</p>
       </footer>
 
-      <SignInDialog open={signInOpen} onOpenChange={setSignInOpen} onSignedIn={account.remember} />
       <BrazeDebug />
       <ScrollRestoration />
     </div>
