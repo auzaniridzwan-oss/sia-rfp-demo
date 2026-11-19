@@ -21,10 +21,12 @@
     "schema:export": "tsx scripts/export-schema.ts",
     "schema:check": "tsx scripts/export-schema.ts --check",
     "braze:setup": "tsx --env-file=.env scripts/braze-setup.ts",
-    "seed:zara": "tsx --env-file=.env scripts/seed-zara.ts"
+    "seed:zara": "tsx --env-file=.env scripts/seed-zara.ts",
+    "smoke": "playwright test"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@playwright/test": "^1.49.1",
     "@types/node": "^22.10.2",
     "esbuild": "^0.24.2",
     "eslint": "^9.17.0",

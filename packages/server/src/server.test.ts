@@ -82,3 +82,17 @@ describe('consent + merge validation', async () => {
     expect((await handleMerge(post({ external_id: 'ceid_test_0123456789abcdef', anonymous_alias: 'someone-else' }), { entity: 'SQ', env })).status).toBe(400);
   });
 });
+
+describe('admin guard', async () => {
+  const { handleAdmin } = await import('./admin');
+  const post = (token?: string) =>
+    new Request('http://x', { method: 'POST', body: JSON.stringify({ action: 'seed_zara' }), headers: { 'content-type': 'application/json', ...(token ? { 'x-demo-admin-token': token } : {}) } });
+  it('is disabled without DEMO_ADMIN_TOKEN', async () => {
+    expect((await handleAdmin(post('x'), { entity: 'SQ', env: {} })).status).toBe(503);
+  });
+  it('rejects a wrong or missing token', async () => {
+    const e = { DEMO_ADMIN_TOKEN: 'secret-token' };
+    expect((await handleAdmin(post(), { entity: 'SQ', env: e })).status).toBe(401);
+    expect((await handleAdmin(post('nope'), { entity: 'SQ', env: e })).status).toBe(401);
+  });
+});

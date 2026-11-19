@@ -21,7 +21,7 @@ export interface BrazeClientConfig {
 export interface SdkActivity {
   id: number;
   ts: number;
-  kind: 'init' | 'identity' | 'event' | 'attribute' | 'purchase' | 'subscription' | 'flush' | 'reset' | 'rest';
+  kind: 'init' | 'identity' | 'event' | 'attribute' | 'purchase' | 'subscription' | 'flush' | 'reset' | 'rest' | 'message';
   name: string;
   payload?: unknown;
   status: 'sent' | 'rejected' | 'failed';
@@ -83,6 +83,11 @@ export class BrazeClient {
       if (!ok) throw new Error('braze.initialize returned false');
       this.sdk = sdk;
       sdk.automaticallyShowInAppMessages();
+      // Observe (not replace) in-app message display for the debug overlay's Messaging tab.
+      sdk.subscribeToInAppMessage((m) => {
+        const msg = m as unknown as { message?: string; header?: string; extras?: Record<string, string>; constructor: { name: string } };
+        this.emit({ kind: 'message', name: `in-app message (${msg.constructor?.name ?? 'IAM'})`, status: 'sent', payload: { header: msg.header, message: msg.message?.slice(0, 200), extras: msg.extras } });
+      });
 
       const restored = storage.get<string>(STORAGE_EXTERNAL_ID);
       if (restored) sdk.changeUser(restored);

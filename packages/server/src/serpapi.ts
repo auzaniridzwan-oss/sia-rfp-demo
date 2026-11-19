@@ -138,7 +138,9 @@ export async function searchFlights(query: FlightSearchQuery, airline: string, a
     api_key: apiKey,
   });
   try {
-    const res = await fetch(`https://serpapi.com/search.json?${params}`, { signal: AbortSignal.timeout(15_000) });
+    // Stay well inside the function time limit so a slow SerpAPI falls back to fixtures
+    // instead of the function being killed (which leaves the results page spinning).
+    const res = await fetch(`https://serpapi.com/search.json?${params}`, { signal: AbortSignal.timeout(8_000) });
     const json = (await res.json()) as SerpApiFixture & { error?: string };
     if (!res.ok || json.error) return fallback(json.error ?? `SerpAPI HTTP ${res.status}`);
     const itineraries = normaliseItineraries(json, airline);

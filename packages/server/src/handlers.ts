@@ -72,6 +72,7 @@ export function handleHealth(_request: Request, ctx: HandlerContext): Response {
     entity: ctx.entity,
     serpapi: Boolean(env.SERPAPI_KEY),
     brazeRest: Boolean(brazeRestConfig(env)),
+    presenter: Boolean(env.DEMO_ADMIN_TOKEN),
     routes: [...ALLOWED_AIRPORTS],
   });
 }

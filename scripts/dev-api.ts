@@ -10,6 +10,7 @@ import type { WebEntity } from '../packages/core/src/entity';
 import { handleBrazeProfile, handleFlights, handleHealth, type HandlerContext } from '../packages/server/src/handlers';
 import { handleBooking } from '../packages/server/src/booking';
 import { handleConsent, handleMerge } from '../packages/server/src/consent';
+import { handleAdmin } from '../packages/server/src/admin';
 
 type Handler = (req: Request, ctx: HandlerContext) => Response | Promise<Response>;
 const routes: Record<string, Handler> = {
@@ -19,6 +20,7 @@ const routes: Record<string, Handler> = {
   '/api/booking': handleBooking,
   '/api/consent': handleConsent,
   '/api/identity/merge': handleMerge,
+  '/api/admin': handleAdmin,
 };
 
 const PORT = Number(process.env.API_PORT ?? 3000);
@@ -36,7 +38,7 @@ createServer(async (req, res) => {
       const chunks: Buffer[] = [];
       for await (const c of req) chunks.push(c as Buffer);
       const body = chunks.length ? Buffer.concat(chunks) : undefined;
-      response = await handler(new Request(url, { method: req.method, headers: { 'content-type': String(req.headers['content-type'] ?? '') }, body }), { entity });
+      response = await handler(new Request(url, { method: req.method, headers: { 'content-type': String(req.headers['content-type'] ?? ''), 'x-demo-admin-token': String(req.headers['x-demo-admin-token'] ?? '') }, body }), { entity });
     } catch (e) {
       response = new Response(JSON.stringify({ error: String(e) }), { status: 500 });
     }

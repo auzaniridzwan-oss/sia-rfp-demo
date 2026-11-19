@@ -64,10 +64,11 @@ function FlightList({ direction, onPicked }: { direction: 'outbound' | 'inbound'
   const query = direction === 'outbound' ? { from: search.from, to: search.to, date: search.departDate } : { from: search.to, to: search.from, date: search.returnDate! };
   const [cabin, setCabin] = useState<CabinClass>(search.cabin);
 
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading, error, refetch, isFetching } = useQuery({
     queryKey: ['flights', entity, query.from, query.to, query.date],
     queryFn: ({ signal }) => searchFlights(query, signal),
     staleTime: 10 * 60_000,
+    retry: 1,
   });
 
   const families = FARE_FAMILIES[entity].filter((f) => f.cabin === cabin);
@@ -112,7 +113,14 @@ function FlightList({ direction, onPicked }: { direction: 'outbound' | 'inbound'
       </div>
 
       {isLoading && <p className="py-10 text-center text-muted">Searching live {site.name} flights…</p>}
-      {error && <p className="text-error">{error.message}</p>}
+      {error && (
+        <div className="rounded-card border border-border bg-surface p-5 text-sm">
+          <p className="text-error">We couldn't load flights just now.</p>
+          <button className="btn-secondary mt-3 px-4 py-2 text-sm" disabled={isFetching} onClick={() => void refetch()}>
+            {isFetching ? 'Retrying…' : 'Try again'}
+          </button>
+        </div>
+      )}
       {data && (
         <>
           {data.source === 'fixture' && <p className="mb-3 rounded-input bg-accent-soft px-3 py-2 text-xs">{data.note ?? 'Showing offline flight data.'}</p>}

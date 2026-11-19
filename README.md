@@ -26,6 +26,8 @@ Every push to `main` deploys both.
 | `packages/server` | Request handlers: `/api/flights` (SerpAPI + cache + fixture fallback), `/api/braze/profile`, `/api/booking` (sia_next_trip + catalog), `/api/consent` (sia_consent `$update` + audit events), `/api/identity/merge` (anonymous → CEID), `/api/health` |
 | `braze/schema.json` | Generated event/attribute dictionary (`pnpm schema:export`) |
 | `scripts/` | `dev-api.ts`, `serpapi-spike.ts`, `gen-fixture-index.ts`, `export-schema.ts`, `braze-setup.ts` (catalogs + offers), `seed-zara.ts` (demo persona) |
+| `docs/DEMO_RUNBOOK.md` | Live demo runbook: prep, panel cheat-sheet, click-by-click per TST loop with fallbacks |
+| `e2e/` | Playwright smoke tests against the live sites (`pnpm smoke`, uses installed Chrome) |
 | `docs/BRAZE_SETUP.md` | Workspace setup: what the scripts create, dashboard steps (Banners, Content Cards, segments, Loop 1/2 Canvases), live-demo checklist |
 
 ## Setup
@@ -39,6 +41,7 @@ pnpm dev:tr              # http://localhost:5174
 pnpm test                # unit tests
 pnpm braze:setup         # create catalogs + offers in Braze (idempotent)
 pnpm seed:zara           # seed / reset the Zara persona
+pnpm smoke               # smoke-test both live sites (also warms caches)
 ```
 
 Pages: `/` home, `/booking/*` flow, `/manage`, `/login`, `/register`, `/account`, `/preferences` (Group Preference Centre).
