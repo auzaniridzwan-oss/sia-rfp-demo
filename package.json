@@ -19,7 +19,9 @@
     "dev:api": "tsx watch --env-file=.env scripts/dev-api.ts",
     "test": "vitest run",
     "schema:export": "tsx scripts/export-schema.ts",
-    "schema:check": "tsx scripts/export-schema.ts --check"
+    "schema:check": "tsx scripts/export-schema.ts --check",
+    "braze:setup": "tsx --env-file=.env scripts/braze-setup.ts",
+    "seed:zara": "tsx --env-file=.env scripts/seed-zara.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

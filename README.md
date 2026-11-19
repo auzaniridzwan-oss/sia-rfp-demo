@@ -25,7 +25,8 @@ Every push to `main` deploys both.
 | `packages/data` | Destinations, ancillary catalogues; SerpAPI fixtures (server-only: `@sia/data/fixtures`) |
 | `packages/server` | Request handlers: `/api/flights` (SerpAPI + cache + fixture fallback), `/api/braze/profile`, `/api/booking` (sia_next_trip + catalog), `/api/consent` (sia_consent `$update` + audit events), `/api/identity/merge` (anonymous → CEID), `/api/health` |
 | `braze/schema.json` | Generated event/attribute dictionary (`pnpm schema:export`) |
-| `scripts/` | `dev-api.ts`, `serpapi-spike.ts`, `gen-fixture-index.ts`, `export-schema.ts` |
+| `scripts/` | `dev-api.ts`, `serpapi-spike.ts`, `gen-fixture-index.ts`, `export-schema.ts`, `braze-setup.ts` (catalogs + offers), `seed-zara.ts` (demo persona) |
+| `docs/BRAZE_SETUP.md` | Workspace setup: what the scripts create, dashboard steps (Banners, Content Cards, segments, Loop 1/2 Canvases), live-demo checklist |
 
 ## Setup
 
@@ -36,6 +37,8 @@ pnpm dev:api             # local /api on :3000 (reads .env)
 pnpm dev:sq              # http://localhost:5173
 pnpm dev:tr              # http://localhost:5174
 pnpm test                # unit tests
+pnpm braze:setup         # create catalogs + offers in Braze (idempotent)
+pnpm seed:zara           # seed / reset the Zara persona
 ```
 
 Pages: `/` home, `/booking/*` flow, `/manage`, `/login`, `/register`, `/account`, `/preferences` (Group Preference Centre).
