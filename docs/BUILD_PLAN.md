@@ -1,6 +1,6 @@
 # SIA Group Demo Websites — Build Plan (for review)
 
-**Status:** v0.4 · 2026-11-19 · Phase 0 complete except for the Vercel import. All decisions D1–D13 are made (see §8).
+**Status:** v0.4 · 2026-11-19 · Phase 0 complete; both sites live. All decisions D1–D13 are made (see §8).
 
 | Version | Change |
 |---|---|
@@ -75,7 +75,7 @@ sia-group-demo/
 Theme tokens come from the brand-asset Drive folder. See §2a. They replace the older `siademo-web/.cursor/design/sia_web.json` values (`#002663` / `#DDB067`), which don't match the live site.
 
 ### Deployment
-- Two Vercel projects (D9: in the `auzani-ridzwans-projects` team) on one repo (root dirs `apps/sq-web`, `apps/tr-web`) → two domains, e.g. `sq-demo…vercel.app`, `scoot-demo…vercel.app`.
+- Two Vercel projects (D9: in the `auzani-ridzwans-projects` team) on one repo (root dirs `apps/sq-web`, `apps/tr-web`) → two domains: **https://sq-demo-seven.vercel.app** (project `sq-demo`) and **https://scoot-demo-pied.vercel.app** (project `scoot-demo`).
 - **Different domains is deliberate**: no shared cookies, so cross-site recognition genuinely comes from identity resolution, not a shared browser session — the honest version of the Loop 1 story.
 - Server-only env: `SERPAPI_KEY`, `BRAZE_REST_API_KEY`, `BRAZE_REST_URL`, `DEMO_ADMIN_TOKEN`. Client env: `VITE_BRAZE_SDK_KEY`, `VITE_BRAZE_SDK_URL`.
 - **Braze workspace (D8):** "[AR]-Demo-Singapore Airlines", SDK endpoint `sdk.iad-03.braze.com`. Both web apps already exist:

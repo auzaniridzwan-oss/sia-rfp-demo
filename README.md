@@ -2,6 +2,15 @@
 
 Two mock airline sites (Singapore Airlines and Scoot) that share one codebase and one Braze workspace. They are used to demo cross-entity identity, consent propagation and user journeys for the SIA Group RFP. The full plan is in [docs/BUILD_PLAN.md](docs/BUILD_PLAN.md).
 
+## Live sites
+
+| Site | URL | Vercel project |
+|---|---|---|
+| Singapore Airlines | https://sq-demo-seven.vercel.app | `sq-demo` (root `apps/sq-web`) |
+| Scoot | https://scoot-demo-pied.vercel.app | `scoot-demo` (root `apps/tr-web`) |
+
+Every push to `main` deploys both.
+
 ## Layout
 
 | Path | What |
