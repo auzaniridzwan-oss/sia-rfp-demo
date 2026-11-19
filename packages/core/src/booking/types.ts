@@ -102,3 +102,20 @@ export interface BookingSearch {
   cabin: CabinClass;
   paxCount: number;
 }
+
+/** A confirmed booking kept in the browser for Manage Booking (no payment data). */
+export interface SavedBooking {
+  pnr: string;
+  entity: WebEntity;
+  createdAt: string;
+  search: BookingSearch;
+  outbound: SelectedFlight;
+  inbound: SelectedFlight | null;
+  passengers: Passenger[];
+  ancillaries: Record<string, { qty: number; priceSgd: number }>;
+  baggageKg: number;
+  seats: SeatSelection[];
+  totalSgd: number;
+  checkinStatus: 'not_open' | 'open' | 'completed';
+  externalId: string | null;
+}

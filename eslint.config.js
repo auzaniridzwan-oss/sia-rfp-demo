@@ -17,6 +17,11 @@ export default tseslint.config(
     },
   },
   {
+    // Shared libraries export hooks/contexts next to components; fast refresh only matters in apps.
+    files: ['packages/**/*.{ts,tsx}'],
+    rules: { 'react-refresh/only-export-components': 'off' },
+  },
+  {
     files: ['**/*.{js,cjs}'],
     languageOptions: { globals: { ...globals.node } },
   },

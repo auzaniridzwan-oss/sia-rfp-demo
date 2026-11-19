@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react';
  */
 type Tab = 'identity' | 'events' | 'profile';
 
+const KIND_LABEL: Partial<Record<SdkActivity['kind'], string>> = { rest: 'REST' };
+
 const STATUS_STYLE: Record<SdkActivity['status'], string> = {
   sent: 'bg-emerald-500/15 text-emerald-300',
   rejected: 'bg-amber-500/15 text-amber-300',
@@ -110,7 +112,7 @@ function EventsTab() {
         <li key={a.id} className="rounded border border-slate-800">
           <button className="flex w-full items-center gap-2 px-2 py-1 text-left" onClick={() => setSelected(selected === a.id ? null : a.id)}>
             <span className="text-slate-500">{new Date(a.ts).toLocaleTimeString()}</span>
-            <span className="text-slate-400">{a.kind}</span>
+            <span className={a.kind === 'rest' ? 'text-sky-300' : 'text-slate-400'}>{KIND_LABEL[a.kind] ?? a.kind}</span>
             <span className="truncate text-white">{a.name}</span>
             <span className={`ml-auto rounded px-1.5 text-[11px] ${STATUS_STYLE[a.status]}`}>{a.status}</span>
           </button>

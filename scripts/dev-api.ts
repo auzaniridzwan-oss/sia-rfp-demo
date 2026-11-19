@@ -8,12 +8,14 @@
 import { createServer } from 'node:http';
 import type { WebEntity } from '../packages/core/src/entity';
 import { handleBrazeProfile, handleFlights, handleHealth, type HandlerContext } from '../packages/server/src/handlers';
+import { handleBooking } from '../packages/server/src/booking';
 
 type Handler = (req: Request, ctx: HandlerContext) => Response | Promise<Response>;
 const routes: Record<string, Handler> = {
   '/api/flights': handleFlights,
   '/api/braze/profile': handleBrazeProfile,
   '/api/health': handleHealth,
+  '/api/booking': handleBooking,
 };
 
 const PORT = Number(process.env.API_PORT ?? 3000);
@@ -28,7 +30,10 @@ createServer(async (req, res) => {
     response = new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
   } else {
     try {
-      response = await handler(new Request(url, { method: req.method }), { entity });
+      const chunks: Buffer[] = [];
+      for await (const c of req) chunks.push(c as Buffer);
+      const body = chunks.length ? Buffer.concat(chunks) : undefined;
+      response = await handler(new Request(url, { method: req.method, headers: { 'content-type': String(req.headers['content-type'] ?? '') }, body }), { entity });
     } catch (e) {
       response = new Response(JSON.stringify({ error: String(e) }), { status: 500 });
     }

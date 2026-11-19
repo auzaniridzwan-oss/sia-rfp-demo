@@ -1,5 +1,5 @@
 import type * as BrazeSdk from '@braze/web-sdk';
-import type { BookingActions, BookingState, LogEntry, SdkActivity } from '@sia/core';
+import type { BookingActions, BookingState, EventProps, LogEntry, SdkActivity, SdkEventName } from '@sia/core';
 import { useQuery } from '@tanstack/react-query';
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { useStore } from 'zustand';
@@ -26,6 +26,19 @@ export function usePageView(page: string) {
     logged.current = page;
     braze.track('sia_page_viewed', { page });
   }, [braze, ready, page]);
+}
+
+/** Track an event once when a page/step mounts (StrictMode-safe, waits for the SDK). */
+export function useTrackOnMount<E extends SdkEventName>(name: E, props: EventProps<E> | null) {
+  const { braze, ready } = useSia();
+  const done = useRef(false);
+  useEffect(() => {
+    if (!ready || done.current || !props) return;
+    done.current = true;
+    braze.track(name, props);
+    // Props are read once at mount by design.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [braze, ready, name]);
 }
 
 /** Live list of SDK activity for the debug overlay. */

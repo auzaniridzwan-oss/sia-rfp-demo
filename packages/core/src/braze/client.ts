@@ -21,7 +21,7 @@ export interface BrazeClientConfig {
 export interface SdkActivity {
   id: number;
   ts: number;
-  kind: 'init' | 'identity' | 'event' | 'attribute' | 'purchase' | 'subscription' | 'flush' | 'reset';
+  kind: 'init' | 'identity' | 'event' | 'attribute' | 'purchase' | 'subscription' | 'flush' | 'reset' | 'rest';
   name: string;
   payload?: unknown;
   status: 'sent' | 'rejected' | 'failed';
@@ -202,6 +202,20 @@ export class BrazeClient {
     // wipeData requires a fresh initialize on next use.
     this.sdk = null;
     this.initPromise = null;
+  }
+
+  /** Forget the user and start a fresh anonymous session (demo "sign out"). */
+  async signOut() {
+    this.reset();
+    await this.init();
+  }
+
+  /**
+   * Record a server-side (REST) write in the activity stream, so the debug overlay shows
+   * nested attributes and catalog writes alongside SDK calls.
+   */
+  noteRest(name: string, status: SdkActivity['status'], payload?: unknown, detail?: string) {
+    this.emit({ kind: 'rest', name, status, payload, detail });
   }
 
   getActivity(): readonly SdkActivity[] {

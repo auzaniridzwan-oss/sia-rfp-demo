@@ -12,3 +12,4 @@ export * from './booking/fares';
 export * from './booking/rules';
 export * from './booking/store';
 export * from './flights/client';
+export * from './booking/seatmap';
