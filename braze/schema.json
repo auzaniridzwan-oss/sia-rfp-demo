@@ -5,7 +5,7 @@
       "source": "sdk",
       "description": "Route change (decision D7: on by default).",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "page": "string"
       }
     },
@@ -13,7 +13,7 @@
       "source": "sdk",
       "description": "Flight search submitted. Loop 1 entry; Cross-Entity Searchers segment.",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "origin": "string",
         "origin_code": "string",
         "destination": "string",
@@ -29,7 +29,7 @@
       "source": "sdk",
       "description": "Fare chosen on the results page.",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "direction": "\"outbound\" | \"inbound\"",
         "destination_code": "string",
         "depart_date": "time",
@@ -44,7 +44,7 @@
       "source": "sdk",
       "description": "Booking funnel step entered (drop-off branching).",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "step": "\"passenger\" | \"ancillaries\" | \"seats\" | \"payment\"",
         "destination_code": "string"
       }
@@ -53,7 +53,7 @@
       "source": "sdk",
       "description": "Ancillary added in the booking flow or Manage Booking.",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "product_code": "string",
         "category": "\"seat\" | \"baggage\" | \"meal\" | \"insurance\" | \"flex\" | \"upgrade\" | \"priority\" | \"wifi\" | \"retail\" | \"bundle\"",
         "timing": "\"booking_only\" | \"post_booking\" | \"onboard\"",
@@ -65,7 +65,7 @@
       "source": "sdk",
       "description": "Seat chosen.",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "seat_type": "\"standard\" | \"forward_zone\" | \"extra_legroom\" | \"solo\" | \"scootplus\"",
         "seat_number": "string",
         "price": "number",
@@ -76,7 +76,7 @@
       "source": "sdk",
       "description": "mySQupgrade, miles upgrade or ScootPlus bid.",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "pnr": "string",
         "upgrade_type": "\"mysqupgrade\" | \"miles\" | \"scootplus_bid\"",
         "from_cabin": "\"economy\" | \"premium_economy\" | \"business\" | \"scootplus\"",
@@ -88,7 +88,7 @@
       "source": "sdk",
       "description": "Mock payment declined.",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "reason": "string",
         "fare_amount": "number"
       }
@@ -97,7 +97,7 @@
       "source": "sdk",
       "description": "Payment success. Loop 1 Canvas exit; Loop 3.B entry.",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "pnr": "string",
         "origin_code": "string",
         "destination_code": "string",
@@ -112,7 +112,7 @@
       "source": "sdk",
       "description": "Manage Booking → Check in.",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "pnr": "string"
       }
     },
@@ -120,8 +120,8 @@
       "source": "server",
       "description": "One event per changed consent item, logged by /api/consent in the same REST call that updates sia_consent (Loop 2 audit trail and Canvas trigger).",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
-        "channel": "\"email\" | \"push\" | \"sms\" | \"in_app\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
+        "channel": "\"email\" | \"push\" | \"sms\" | \"whatsapp\" | \"line\" | \"in_app\"",
         "communication_nature": "\"flight_status\" | \"news\" | \"promotions\" | \"offers\"",
         "new_status": "\"opted_in\" | \"opted_out\"",
         "source_system": "\"preference_center\" | \"registration\" | \"MKTDH\""
@@ -131,7 +131,7 @@
       "source": "sdk",
       "description": "Sign-up completed. Replaces the old \"Registration - Completed\" event.",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "has_krisflyer": "boolean",
         "registration_source": "string"
       }
@@ -140,7 +140,7 @@
       "source": "sdk",
       "description": "Client error surfaced by the logger (message only, no PII).",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "message": "string"
       }
     },
@@ -148,7 +148,7 @@
       "source": "server",
       "description": "Fired by the seed script / presenter panel.",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "pnr": "string",
         "destination_code": "string"
       }
@@ -157,7 +157,7 @@
       "source": "server",
       "description": "Fired by the seed script / presenter panel.",
       "properties": {
-        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\" | \"KRISSHOP\"",
         "previous_tier": "string",
         "new_tier": "string",
         "change_date": "time"

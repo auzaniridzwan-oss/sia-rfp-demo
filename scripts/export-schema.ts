@@ -6,6 +6,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import type { ZodTypeAny } from 'zod';
 import { EVENT_CATALOG } from '../packages/core/src/braze/events';
+import { ENTITIES } from '../packages/core/src/entity';
 import { ALIAS_LABELS, REST_ATTRIBUTES, SDK_ATTRIBUTES } from '../packages/core/src/braze/attributes';
 
 function typeName(t: ZodTypeAny): string {
@@ -30,7 +31,7 @@ const events = Object.fromEntries(
     {
       source: def.source,
       description: def.description,
-      properties: { entity: '"SQ" | "TR" | "KRISPLUS"', ...Object.fromEntries(Object.entries(def.props.shape).map(([k, v]) => [k, typeName(v as ZodTypeAny)])) },
+      properties: { entity: ENTITIES.map((e) => JSON.stringify(e)).join(' | '), ...Object.fromEntries(Object.entries(def.props.shape).map(([k, v]) => [k, typeName(v as ZodTypeAny)])) },
     },
   ]),
 );

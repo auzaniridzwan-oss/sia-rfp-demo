@@ -7,7 +7,7 @@ import { CHANNELS, COMMUNICATION_NATURES } from '../schemas/consent';
  * shapes (docs/BUILD_PLAN.md §4.1, aligned with the "Demo Data" tab of the SIA plan).
  *
  * Rules:
- * - Every event carries `entity` (SQ | TR | KRISPLUS). BrazeClient adds the site's entity
+ * - Every event carries `entity` (SQ | TR | KRISPLUS | KRISSHOP). BrazeClient adds the site's entity
  *   automatically; pass it explicitly only when the event is about another entity
  *   (e.g. changing Scoot consent from the SQ site).
  * - snake_case, `sia_` prefix, no PII in properties.

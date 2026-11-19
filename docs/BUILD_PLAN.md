@@ -7,6 +7,7 @@
 | 0.1 | Initial plan |
 | 0.2 | Brand tokens (§2a) and ancillary catalogues (§2b) now taken from the brand-asset Drive folder (`singaporeair-design-tokens.md`, `scoot-design-tokens.md`, `singaporeair-ancillaries.md`, `scoot-ancillaries.md`). Replaced my earlier guessed ancillary and seat names; the Scoot brand-extraction step is no longer needed. |
 | 0.3 | Decisions D1–D13 applied: React + TypeScript rewrite, destinations served by both SQ and TR (London dropped), workspace and SDK keys, Marcellus display font, Scoot logo, illustrative Scoot prices, one generic Scoot bundle, `sia_page_viewed` on by default. Estimate increased for the rewrite. |
+| 0.5 | Phases 1–4 built and live; decisions D14 (subscription groups) and D15 (consent schema extension) added. |
 | 0.4 | Phase 0 results: destinations validated by SerpAPI (D4); Braze REST endpoint confirmed as `rest.iad-03.braze.com`. |
 
 **Inputs reviewed**
@@ -342,6 +343,8 @@ About 13 working days (up from 9–10, because of the React + TypeScript rewrite
 | D11 | Scoot prices | Illustrative, labelled as such |
 | D12 | Scoot bundle | One generic "Fare Bundle" |
 | D13 | Scoot logo | `logo-scoot-512.png` from Drive |
+| D14 | Subscription groups | Six groups in the workspace, synced server-side by `/api/consent` (`v2/subscription/status/set`). A group is subscribed when any mapped topic is opted in: SQ email marketing ← SQ email news + promotions; Scoot email marketing ← TR email news + promotions; Kris+ email ← Kris+ email offers; KrisShop email ← KrisShop email offers; SIA Group WhatsApp ← SQ + TR WhatsApp promotions; SIA Group LINE ← SQ + TR LINE promotions |
+| D15 | Consent schema extension | Beyond the Demo Data tab: entity `KRISSHOP`, channels `whatsapp` and `line`, five new `sia_consent` topics (16 in total). Existing profiles get new items appended with `$add` the first time they are saved |
 
 **Still needed before the build:** the SerpAPI key and a Braze REST API key for this workspace (with users.track, users.export.ids, users.merge, catalogs and subscription scopes). Both go into Vercel env vars or a local `.env` that you set; I don't handle them in chat.
 

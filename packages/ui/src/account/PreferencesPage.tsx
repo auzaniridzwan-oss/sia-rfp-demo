@@ -1,4 +1,4 @@
-import { CONSENT_TOPICS, consentItem, ENTITY_LABEL, type ConsentItem } from '@sia/core';
+import { CHANNEL_LABEL, CONSENT_TOPICS, consentItem, ENTITY_LABEL, type ConsentItem } from '@sia/core';
 import { useBraze, useBrazeProfile, useExternalId, usePageView, useSia } from '@sia/react';
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -6,7 +6,7 @@ import { Navigate } from 'react-router-dom';
 
 const FREQUENCIES: ConsentItem['frequency'][] = ['as_needed', 'daily', 'weekly', 'monthly'];
 const FREQ_LABEL: Record<ConsentItem['frequency'], string> = { as_needed: 'As needed', daily: 'Daily', weekly: 'Weekly', monthly: 'Monthly' };
-const ENTITY_ORDER = (own: string) => (['SQ', 'TR', 'KRISPLUS'] as const).slice().sort((a, b) => (a === own ? -1 : b === own ? 1 : 0));
+const ENTITY_ORDER = (own: string) => (Object.keys(ENTITY_LABEL) as (keyof typeof ENTITY_LABEL)[]).sort((a, b) => (a === own ? -1 : b === own ? 1 : 0));
 
 /**
  * Group Preference Centre (Loop 2, Show 2): one page for Singapore Airlines, Scoot and
@@ -57,8 +57,10 @@ export function PreferencesPage() {
 
   const changed = CONSENT_TOPICS.map((t) => draft[t.id]).filter((d): d is ConsentItem => {
     if (!d) return false;
-    const s = stored.get(d.id);
-    return !s || s.status !== d.status || s.frequency !== d.frequency;
+    // A topic never saved for this profile counts as "off at its default frequency".
+    const topic = CONSENT_TOPICS.find((t) => t.id === d.id)!;
+    const s = stored.get(d.id) ?? consentItem(topic, 'opted_out');
+    return s.status !== d.status || s.frequency !== d.frequency;
   });
 
   const save = async (items: ConsentItem[], restrict?: boolean) => {
@@ -104,7 +106,7 @@ export function PreferencesPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <h1 className="font-display text-4xl text-heading">Communication preferences</h1>
-      <p className="mt-2 max-w-2xl text-muted">One place for Singapore Airlines, Scoot and Kris+. Changes apply across the SIA Group straight away.</p>
+      <p className="mt-2 max-w-2xl text-muted">One place for Singapore Airlines, Scoot, Kris+ and KrisShop, by email, app, SMS, WhatsApp and LINE. Changes apply across the SIA Group straight away.</p>
       {restricted && <p className="mt-4 rounded-input bg-accent-soft px-3 py-2 text-sm">You've asked us to restrict marketing use of your data. Service messages about your trips continue.</p>}
       {profile.isLoading && <p className="mt-6 text-muted">Loading your preferences…</p>}
 
@@ -121,7 +123,7 @@ export function PreferencesPage() {
                   <li key={t.id} className="flex flex-wrap items-center gap-4 px-6 py-4">
                     <div className="min-w-[200px] flex-1">
                       <p className="font-semibold">
-                        {t.label} <span className="label ml-1 text-[10px] text-muted">{t.channel}</span>
+                        {t.label} <span className="label ml-1 text-[10px] text-muted">{CHANNEL_LABEL[t.channel]}</span>
                       </p>
                       <p className="text-sm text-muted">{t.description}</p>
                     </div>

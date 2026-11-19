@@ -1,4 +1,4 @@
-import { CONSENT_TOPICS, consentItem, ENTITY_LABEL } from '@sia/core';
+import { CHANNEL_LABEL, CONSENT_TOPICS, consentItem, ENTITY_LABEL, listJoin } from '@sia/core';
 import { usePageView, useSia } from '@sia/react';
 import { useState, type FormEvent } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -82,7 +82,7 @@ export function RegisterPage() {
                   <input type="checkbox" className="mt-1 h-5 w-5 accent-[var(--color-cta-bg)]" checked={own[t.id] ?? false} onChange={(e) => setOwn((o) => ({ ...o, [t.id]: e.target.checked }))} />
                   <span>
                     <span className="block font-semibold">
-                      {t.label} <span className="font-normal text-muted">· {t.channel}</span>
+                      {t.label} <span className="font-normal text-muted">· {CHANNEL_LABEL[t.channel]}</span>
                     </span>
                     <span className="block text-sm text-muted">{t.description}</span>
                   </span>
@@ -93,7 +93,7 @@ export function RegisterPage() {
           <label className="mt-5 flex cursor-pointer items-start gap-3 border-t border-border pt-5">
             <input type="checkbox" className="mt-1 h-5 w-5 accent-[var(--color-cta-bg)]" checked={group} onChange={(e) => setGroup(e.target.checked)} />
             <span>
-              <span className="block font-semibold">Also hear from {others.map((e) => ENTITY_LABEL[e]).join(' and ')}</span>
+              <span className="block font-semibold">Also hear from {listJoin(others.map((e) => ENTITY_LABEL[e]))}</span>
               <span className="block text-sm text-muted">News and offers by email from the rest of the SIA Group. Change this any time in Preferences.</span>
             </span>
           </label>
