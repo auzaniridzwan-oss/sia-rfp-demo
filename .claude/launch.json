@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "sq-web", "runtimeExecutable": "corepack", "runtimeArgs": ["pnpm@9.15.4", "--filter", "@sia/sq-web", "dev"], "port": 5173 },
+    { "name": "tr-web", "runtimeExecutable": "corepack", "runtimeArgs": ["pnpm@9.15.4", "--filter", "@sia/tr-web", "dev"], "port": 5174 }
+  ]
+}
