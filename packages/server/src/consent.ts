@@ -1,4 +1,4 @@
-import { ANONYMOUS_ALIAS_LABEL, CONSENT_TOPICS, ConsentItem, consentItem, isCeid } from '@sia/core';
+import { ANONYMOUS_ALIAS_LABEL, CONSENT_TOPICS, ConsentItem, consentItem, isCeid, subscriptionGroupStates } from '@sia/core';
 import { z } from 'zod';
 import { BrazeRestError, brazeRequest, brazeRestConfig, exportUser, trackUsers } from './braze-rest';
 import type { HandlerContext } from './handlers';
@@ -26,6 +26,8 @@ export const ConsentWrite = z.object({
  * - Later writes: `$update` per changed item keyed by `id`, with `_merge_objects: true`.
  * - Logs one `sia_consent_updated` event per item whose status changed, in the same
  *   /users/track call, so the audit trail and the attribute change land together.
+ * - Sets the matching native Braze subscription groups (v2/subscription/status/set), so the
+ *   built-in Preference Center (Loop 2, Show 1) always agrees with sia_consent.
  */
 export async function handleConsent(request: Request, ctx: HandlerContext): Promise<Response> {
   if (request.method !== 'POST') return json({ error: 'Method not allowed' }, 405);
@@ -88,7 +90,29 @@ export async function handleConsent(request: Request, ctx: HandlerContext): Prom
   } catch (e) {
     return json(restError(e), 502);
   }
-  return json({ ok: true, mode, items_written: items.length, events_logged: events.length, changed: changed.map((i) => `${i.id}=${i.status}`) });
+  // Native subscription groups: state from the full consent after this change.
+  const after = new Map<string, ConsentItem>(
+    (existing ?? CONSENT_TOPICS.map((t) => consentItem(t, 'opted_out'))).map((i) => [i.id, i]),
+  );
+  for (const i of items) after.set(i.id, i);
+  const groups = subscriptionGroupStates(after, mode === 'initialised' ? undefined : items.map((i) => i.id));
+  let subscription_groups: string[] | string = [];
+  if (groups.length) {
+    try {
+      await brazeRequest(cfg, '/v2/subscription/status/set', {
+        subscription_groups: groups.map(({ group, subscribed }) => ({
+          subscription_group_id: group.id,
+          subscription_state: subscribed ? 'subscribed' : 'unsubscribed',
+          external_ids: [external_id],
+        })),
+      });
+      subscription_groups = groups.map(({ group, subscribed }) => `${group.name}: ${subscribed ? 'subscribed' : 'unsubscribed'}`);
+    } catch (e) {
+      subscription_groups = `failed (${e instanceof BrazeRestError ? e.status : 'error'})`;
+    }
+  }
+
+  return json({ ok: true, mode, items_written: items.length, events_logged: events.length, changed: changed.map((i) => `${i.id}=${i.status}`), subscription_groups });
 }
 
 // ---------------------------------------------------------------- merge

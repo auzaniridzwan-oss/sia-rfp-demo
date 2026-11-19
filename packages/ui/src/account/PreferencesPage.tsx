@@ -3,7 +3,6 @@ import { useBraze, useBrazeProfile, useExternalId, usePageView, useSia } from '@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useSite } from '../site';
 
 const FREQUENCIES: ConsentItem['frequency'][] = ['as_needed', 'daily', 'weekly', 'monthly'];
 const FREQ_LABEL: Record<ConsentItem['frequency'], string> = { as_needed: 'As needed', daily: 'Daily', weekly: 'Weekly', monthly: 'Monthly' };
@@ -17,7 +16,6 @@ const ENTITY_ORDER = (own: string) => (['SQ', 'TR', 'KRISPLUS'] as const).slice(
  */
 export function PreferencesPage() {
   usePageView('preferences');
-  const site = useSite();
   const { entity } = useSia();
   const braze = useBraze();
   const externalId = useExternalId();
@@ -73,15 +71,13 @@ export function PreferencesPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ external_id: externalId, items: items.length ? items : [draft[CONSENT_TOPICS[0]!.id]], source_system: 'preference_center', ...(restrict !== undefined ? { restrict_processing: restrict } : {}) }),
       });
-      const body = (await res.json().catch(() => ({}))) as { changed?: string[]; events_logged?: number; mode?: string; error?: string };
+      const body = (await res.json().catch(() => ({}))) as { changed?: string[]; events_logged?: number; mode?: string; error?: string; subscription_groups?: string[] | string };
       braze.noteRest('consent (preference centre): sia_consent $update + sia_consent_updated', res.ok ? 'sent' : 'failed', body);
-      // Native subscription groups, where configured (Loop 2, Show 1 stays consistent with Show 2).
-      for (const i of items) {
-        const group = site.subscriptionGroups?.[i.id];
-        if (group) braze.setSubscriptionGroup(group, i.status === 'opted_in');
-      }
       if (!res.ok) throw new Error(body.error ?? `HTTP ${res.status}`);
       setStatus({ tone: 'ok', text: `Saved. ${body.events_logged ?? 0} change${body.events_logged === 1 ? '' : 's'} recorded across the SIA Group.` });
+      if (Array.isArray(body.subscription_groups) && body.subscription_groups.length) {
+        braze.noteRest('v2/subscription/status/set', 'sent', body.subscription_groups);
+      }
       // Braze export lags the write by a few seconds: update the cached profile now so the
       // toggles don't flip back, then re-read once Braze has processed it.
       queryClient.setQueryData(['braze-profile', externalId], (old: { user?: { custom_attributes?: Record<string, unknown> } } | undefined) => {

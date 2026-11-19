@@ -75,3 +75,38 @@ export const consentItem = (t: ConsentTopic, status: ConsentItem['status'], freq
   status,
   frequency,
 });
+
+/**
+ * Braze subscription groups in the "[AR]-Demo-Singapore Airlines" workspace (created in the
+ * dashboard). A group is subscribed when ANY of its mapped consent topics is opted in, so
+ * the native Preference Center (Loop 2, Show 1) and sia_consent (Show 2) never disagree.
+ * Groups with no topics yet are listed for reference and are not synced.
+ */
+export interface SubscriptionGroup {
+  id: string;
+  name: string;
+  topics: string[];
+}
+
+export const SUBSCRIPTION_GROUPS: SubscriptionGroup[] = [
+  { id: '1ef09b5b-56fa-4bd4-88ab-5ab370e8c77b', name: 'Singapore Airlines (SQ) Email Marketing', topics: ['SQ_email_news', 'SQ_email_promotions'] },
+  { id: '9cd0d316-9b89-457d-9cba-c091762200dd', name: 'Scoot (TR) Email Marketing', topics: ['TR_email_news', 'TR_email_promotions'] },
+  { id: '1e338b7b-6061-4917-98af-57e9bfee342e', name: 'Kris+ Email Marketing', topics: ['KRISPLUS_email_offers'] },
+  { id: 'ae23f202-66ef-47bb-a84f-a3c902e0929c', name: 'SIA Group WhatsApp Marketing', topics: [] },
+  { id: '1495907e-6ff7-416f-aa0b-73acd8cefa0c', name: 'SIA Group LINE Marketing', topics: [] },
+  { id: '5d1e2816-c378-4ac8-948f-a3700f096902', name: 'KrisShop Email Marketing', topics: [] },
+];
+
+/**
+ * Desired state for every mapped group touched by `changedIds`, given the full consent
+ * state after the change.
+ */
+export function subscriptionGroupStates(
+  consent: Map<string, Pick<ConsentItem, 'status'>>,
+  changedIds?: string[],
+): { group: SubscriptionGroup; subscribed: boolean }[] {
+  return SUBSCRIPTION_GROUPS.filter((g) => g.topics.length && (!changedIds || g.topics.some((t) => changedIds.includes(t)))).map((group) => ({
+    group,
+    subscribed: group.topics.some((t) => consent.get(t)?.status === 'opted_in'),
+  }));
+}

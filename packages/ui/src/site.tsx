@@ -38,11 +38,6 @@ export interface SiteConfig {
   pricesNote?: string;
   footer: { columns: { title: string; links: string[] }[]; legal: string };
   loyaltyName: string;
-  /**
-   * Braze subscription group IDs per consent item id (e.g. TR_email_promotions → uuid).
-   * Groups are created in the Braze dashboard; unmapped items are skipped.
-   */
-  subscriptionGroups?: Partial<Record<string, string>>;
 }
 
 const SiteContext = createContext<SiteConfig | null>(null);

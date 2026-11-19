@@ -118,3 +118,23 @@ describe('Scoot Fare Bundle', () => {
     expect(quoteSeat({ entity: 'TR', band: 'medium', seatType: 'standard', fareCode: 'TR_ECONOMY' }).priceSgd).toBe(20);
   });
 });
+
+describe('subscriptionGroupStates', async () => {
+  const { subscriptionGroupStates } = await import('./schemas/consent');
+  const state = new Map([
+    ['SQ_email_news', { status: 'opted_in' as const }],
+    ['SQ_email_promotions', { status: 'opted_out' as const }],
+    ['TR_email_news', { status: 'opted_out' as const }],
+    ['TR_email_promotions', { status: 'opted_out' as const }],
+  ]);
+  it('subscribes a group when any mapped topic is opted in', () => {
+    const r = subscriptionGroupStates(state, ['SQ_email_promotions', 'TR_email_promotions']);
+    expect(r.map((x) => [x.group.name, x.subscribed])).toEqual([
+      ['Singapore Airlines (SQ) Email Marketing', true],
+      ['Scoot (TR) Email Marketing', false],
+    ]);
+  });
+  it('ignores changes that touch no mapped group', () => {
+    expect(subscriptionGroupStates(state, ['SQ_push_flight_status'])).toEqual([]);
+  });
+});
