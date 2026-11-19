@@ -1,4 +1,5 @@
 import { bookingTotal, fareFamily } from '@sia/core';
+import { ancillary } from '@sia/data';
 import { useBooking, useSia } from '@sia/react';
 import type { ReactNode } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
@@ -53,7 +54,7 @@ function Summary() {
   for (const f of [s.outbound, s.inbound]) {
     if (f) rows.push([`${fareFamily(entity, f.fareFamily)?.name ?? f.fareFamily} × ${pax}`, f.priceSgd * pax]);
   }
-  for (const [code, a] of Object.entries(s.ancillaries)) rows.push([code === 'BAGGAGE' ? `Extra baggage ${s.baggageKg}kg` : code.replace(/^(SQ|TR)_/, '').replace(/_/g, ' ').toLowerCase(), a.qty * a.priceSgd]);
+  for (const [code, a] of Object.entries(s.ancillaries)) rows.push([code === 'BAGGAGE' ? `Extra baggage ${s.baggageKg}kg` : (ancillary(code)?.name ?? code), a.qty * a.priceSgd]);
   const seatTotal = s.seats.reduce((n, x) => n + x.priceSgd, 0);
   if (s.seats.length) rows.push([`Seats (${s.seats.length})`, seatTotal]);
 
@@ -72,7 +73,7 @@ function Summary() {
         <dl className="mt-4 space-y-1 border-t border-border pt-3 text-sm">
           {rows.map(([k, v]) => (
             <div key={k} className="flex justify-between gap-3">
-              <dt className="capitalize text-muted">{k}</dt>
+              <dt className="text-muted">{k}</dt>
               <dd>{v === 0 ? 'Free' : sgd(v)}</dd>
             </div>
           ))}

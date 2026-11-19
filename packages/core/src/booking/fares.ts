@@ -26,6 +26,9 @@ export const FARE_FAMILIES: Record<WebEntity, FareFamily[]> = {
 export const fareFamily = (entity: WebEntity, code: string) =>
   FARE_FAMILIES[entity].find((f) => f.code === code);
 
+/** Checked baggage included with the Scoot Fare Bundle (illustrative). */
+export const TR_BUNDLE_BAGGAGE_KG = 20;
+
 /** Round to a whole SGD amount (airline-style display). */
 export const roundSgd = (n: number) => Math.round(n);
 

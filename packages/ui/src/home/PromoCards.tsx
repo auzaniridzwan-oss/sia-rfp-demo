@@ -44,7 +44,7 @@ export function PromoCards({ onPick }: { onPick: (destination: string) => void }
             {card.image ? (
               <img src={card.image} alt="" className="h-44 w-full object-cover" loading="lazy" />
             ) : (
-              <div className="h-44 w-full bg-gradient-to-br from-heading to-cta-secondary" />
+              <div className="h-44 w-full bg-gradient-to-br from-heading via-cta-secondary to-accent" />
             )}
             <div className="flex flex-1 flex-col p-5">
               {card.fromBraze && <span className="label mb-1 text-[10px] text-muted">For you</span>}

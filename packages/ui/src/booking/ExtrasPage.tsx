@@ -1,4 +1,4 @@
-import { distanceBand, eligibleAncillaries, quoteBaggage, type AncillaryProduct } from '@sia/core';
+import { distanceBand, eligibleAncillaries, quoteBaggage, TR_BUNDLE_BAGGAGE_KG, type AncillaryProduct } from '@sia/core';
 import { ANCILLARIES } from '@sia/data';
 import { useBooking, usePageView, useTrackOnMount, useSia, useTrack } from '@sia/react';
 import { useNavigate } from 'react-router-dom';
@@ -58,6 +58,9 @@ export function ExtrasPage() {
               <div key={p.code} className="rounded-card border border-border bg-surface p-5">
                 <h2 className="font-semibold text-heading">{p.name}</h2>
                 <p className="text-sm text-muted">{p.description}</p>
+                {s.ancillaries.TR_BUNDLE && (
+                  <p className="mt-2 rounded-input bg-accent-soft px-3 py-2 text-sm">Your Fare Bundle already includes {TR_BUNDLE_BAGGAGE_KG}kg checked baggage. Add more below if you need it.</p>
+                )}
                 <div className="mt-3 flex flex-wrap gap-2">
                   {BAG_OPTIONS.map((kg) => {
                     const q = bagQuote(kg);

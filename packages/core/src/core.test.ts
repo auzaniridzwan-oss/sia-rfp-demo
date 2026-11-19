@@ -111,3 +111,10 @@ describe('misc', () => {
     expect(total).toBe(600 + 30 + 20);
   });
 });
+
+describe('Scoot Fare Bundle', () => {
+  it('makes a standard seat free', () => {
+    expect(quoteSeat({ entity: 'TR', band: 'medium', seatType: 'standard', fareCode: 'TR_ECONOMY', bundle: true })).toMatchObject({ priceSgd: 0, freeByRule: 'fare' });
+    expect(quoteSeat({ entity: 'TR', band: 'medium', seatType: 'standard', fareCode: 'TR_ECONOMY' }).priceSgd).toBe(20);
+  });
+});

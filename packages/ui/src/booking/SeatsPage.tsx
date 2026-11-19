@@ -33,7 +33,7 @@ export function SeatsPage() {
   if (!s.search || !flight || !map) return <BookingLayout requires="passengers">{null}</BookingLayout>;
 
   const band = distanceBand(s.search.from, s.search.to);
-  const quote = (type: SeatType) => quoteSeat({ entity, seatType: type, fareCode: flight.fareFamily, band, tier: loyalty.tier });
+  const quote = (type: SeatType) => quoteSeat({ entity, seatType: type, fareCode: flight.fareFamily, band, tier: loyalty.tier, bundle: Boolean(s.ancillaries.TR_BUNDLE) });
   const taken = new Map(s.seats.filter((x) => x.direction === direction).map((x) => [x.seatNumber, x.passengerIndex]));
   const pax = s.passengers;
 

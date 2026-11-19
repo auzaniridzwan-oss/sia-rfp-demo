@@ -58,8 +58,10 @@ export function quoteSeat(args: {
   fareCode: string;
   band: DistanceBand;
   tier?: LoyaltyTier | null;
+  /** Scoot Fare Bundle bought: a standard seat is included. */
+  bundle?: boolean;
 }): SeatQuote {
-  const { entity, seatType, fareCode, band, tier } = args;
+  const { entity, seatType, fareCode, band, tier, bundle } = args;
   const fare = fareFamily(entity, fareCode);
   const cabin: CabinClass = fare?.cabin ?? 'economy';
 
@@ -68,6 +70,9 @@ export function quoteSeat(args: {
 
   if (entity === 'SQ' && cabin === 'business') {
     return { priceSgd: 0, listPriceSgd: list, freeByRule: 'cabin', reason: 'Included in Business' };
+  }
+  if (entity === 'TR' && bundle && seatType === 'standard') {
+    return { priceSgd: 0, listPriceSgd: list, freeByRule: 'fare', reason: 'Included in your Fare Bundle' };
   }
   if (fare?.freeSeats.includes(seatType)) {
     return { priceSgd: 0, listPriceSgd: list, freeByRule: 'fare', reason: `Free with ${fare.name}` };
