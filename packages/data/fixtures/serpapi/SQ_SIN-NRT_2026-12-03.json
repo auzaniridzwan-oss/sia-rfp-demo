@@ -1,0 +1,253 @@
+{
+  "best_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-03 09:20"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2026-12-03 17:05"
+          },
+          "duration": 405,
+          "airplane": "Boeing 777",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 12",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 445 kg"
+          ]
+        }
+      ],
+      "total_duration": 405,
+      "carbon_emissions": {
+        "this_flight": 445000,
+        "typical_for_this_route": 392000,
+        "difference_percent": 14
+      },
+      "price": 1156,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJUWpScWRXWnRZMWxJWVRoQlFsVmhibWRDUnkwdExTMHRMUzB0ZG5SaVlYbzBNMEZCUVVGQlIzSXRVMDVGU0VnNFRGRkJFZ1JUVVRFeUdnc0l3SVlIRUFJYUExTkhSRGdjY0lhOEJRPT0iLFtbIlNJTiIsIjIwMjYtMTItMDMiLCJOUlQiLG51bGwsIlNRIiwiMTIiXV1d"
+    }
+  ],
+  "other_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-03 23:55"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2026-12-04 07:30"
+          },
+          "duration": 395,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 638",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 259 kg"
+          ],
+          "overnight": true
+        }
+      ],
+      "total_duration": 395,
+      "carbon_emissions": {
+        "this_flight": 260000,
+        "typical_for_this_route": 392000,
+        "difference_percent": -34
+      },
+      "price": 1552,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJUWpScWRXWnRZMWxJWVRoQlFsVmhibWRDUnkwdExTMHRMUzB0ZG5SaVlYbzBNMEZCUVVGQlIzSXRVMDVGU0VnNFRGRkJFZ1ZUVVRZek9Cb0xDUEM3Q1JBQ0dnTlRSMFE0SEhDRHJBYz0iLFtbIlNJTiIsIjIwMjYtMTItMDMiLCJOUlQiLG51bGwsIlNRIiwiNjM4Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-03 01:20"
+          },
+          "arrival_airport": {
+            "name": "Chubu Centrair International Airport",
+            "id": "NGO",
+            "time": "2026-12-03 08:30"
+          },
+          "duration": 370,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 672",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 243 kg"
+          ],
+          "overnight": true
+        },
+        {
+          "departure_airport": {
+            "name": "Chubu Centrair International Airport",
+            "id": "NGO",
+            "time": "2026-12-03 14:00"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2026-12-03 15:20"
+          },
+          "duration": 80,
+          "airplane": "Boeing 737",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 494",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "31 in",
+          "extensions": [
+            "Average legroom (31 in)",
+            "Free Wi-Fi",
+            "Stream media to your device",
+            "Carbon emissions estimate: 78 kg"
+          ],
+          "plane_and_crew_by": "ANA Wings"
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 330,
+          "name": "Chubu Centrair International Airport",
+          "id": "NGO"
+        }
+      ],
+      "total_duration": 780,
+      "carbon_emissions": {
+        "this_flight": 322000,
+        "typical_for_this_route": 392000,
+        "difference_percent": -18
+      },
+      "price": 2263,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+      "booking_token": "WyJDalJJUWpScWRXWnRZMWxJWVRoQlFsVmhibWRDUnkwdExTMHRMUzB0ZG5SaVlYbzBNMEZCUVVGQlIzSXRVMDVGU0VnNFRGRkJFZ3RUVVRZM01ueE9TRFE1TkJvTENNcm5EUkFDR2dOVFIwUTRISENJMndvPSIsW1siU0lOIiwiMjAyNi0xMi0wMyIsIk5HTyIsbnVsbCwiU1EiLCI2NzIiXSxbIk5HTyIsIjIwMjYtMTItMDMiLCJOUlQiLG51bGwsIk5IIiwiNDk0Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-03 00:55"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2026-12-03 08:40"
+          },
+          "duration": 405,
+          "airplane": "Boeing 787",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 804",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "34 in",
+          "extensions": [
+            "Above average legroom (34 in)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 358 kg"
+          ],
+          "overnight": true,
+          "plane_and_crew_by": "Air Japan"
+        }
+      ],
+      "total_duration": 405,
+      "carbon_emissions": {
+        "this_flight": 358000,
+        "typical_for_this_route": 392000,
+        "difference_percent": -9
+      },
+      "price": 2346,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+      "booking_token": "WyJDalJJUWpScWRXWnRZMWxJWVRoQlFsVmhibWRDUnkwdExTMHRMUzB0ZG5SaVlYbzBNMEZCUVVGQlIzSXRVMDVGU0VnNFRGRkJFZ1ZPU0Rnd05Cb0xDSmlvRGhBQ0dnTlRSMFE0SEhDWGpRcz0iLFtbIlNJTiIsIjIwMjYtMTItMDMiLCJOUlQiLG51bGwsIk5IIiwiODA0Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-03 06:35"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2026-12-03 14:30"
+          },
+          "duration": 415,
+          "airplane": "Boeing 787",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 802",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "34 in",
+          "extensions": [
+            "Above average legroom (34 in)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 358 kg"
+          ],
+          "plane_and_crew_by": "Air Japan"
+        }
+      ],
+      "total_duration": 415,
+      "carbon_emissions": {
+        "this_flight": 358000,
+        "typical_for_this_route": 392000,
+        "difference_percent": -9
+      },
+      "price": 2346,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+      "booking_token": "WyJDalJJUWpScWRXWnRZMWxJWVRoQlFsVmhibWRDUnkwdExTMHRMUzB0ZG5SaVlYbzBNMEZCUVVGQlIzSXRVMDVGU0VnNFRGRkJFZ1ZPU0Rnd01ob0xDSmlvRGhBQ0dnTlRSMFE0SEhDWGpRcz0iLFtbIlNJTiIsIjIwMjYtMTItMDMiLCJOUlQiLG51bGwsIk5IIiwiODAyIl1dXQ=="
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "other_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-14 03:15"
+          },
+          "arrival_airport": {
+            "name": "Perth Airport",
+            "id": "PER",
+            "time": "2027-01-14 08:25"
+          },
+          "duration": 310,
+          "airplane": "Boeing 787",
+          "airline": "Scoot",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/TR.png",
+          "travel_class": "Economy",
+          "flight_number": "TR 52",
+          "legroom": "30 in",
+          "extensions": [
+            "Average legroom (30 in)",
+            "Wi-Fi for a fee",
+            "In-seat power outlet",
+            "Carbon emissions estimate: 232 kg"
+          ],
+          "overnight": true
+        }
+      ],
+      "total_duration": 310,
+      "carbon_emissions": {
+        "this_flight": 233000,
+        "typical_for_this_route": 327000,
+        "difference_percent": -29
+      },
+      "price": 628,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/TR.png",
+      "booking_token": "WyJDalJJWWt0bk5ucE1aa1V3ZW5OQlFtSmtjVkZDUnkwdExTMHRkblJpWjIweU1TMXVNa0ZCUVVGQlIzSXRVMDFuU0hCcFgyMUJFZ1JVVWpVeUdnc0lndW9ERUFJYUExTkhSRGdjY0l6OEFnPT0iLFtbIlNJTiIsIjIwMjctMDEtMTQiLCJQRVIiLG51bGwsIlRSIiwiNTIiXV1d"
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-14 11:25"
+          },
+          "arrival_airport": {
+            "name": "Perth Airport",
+            "id": "PER",
+            "time": "2027-01-14 16:35"
+          },
+          "duration": 310,
+          "airplane": "Boeing 787",
+          "airline": "Scoot",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/TR.png",
+          "travel_class": "Economy",
+          "flight_number": "TR 8",
+          "legroom": "30 in",
+          "extensions": [
+            "Average legroom (30 in)",
+            "Wi-Fi for a fee",
+            "In-seat power outlet",
+            "Carbon emissions estimate: 232 kg"
+          ]
+        }
+      ],
+      "total_duration": 310,
+      "carbon_emissions": {
+        "this_flight": 233000,
+        "typical_for_this_route": 327000,
+        "difference_percent": -29
+      },
+      "price": 708,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/TR.png",
+      "booking_token": "WyJDalJJWWt0bk5ucE1aa1V3ZW5OQlFtSmtjVkZDUnkwdExTMHRkblJpWjIweU1TMXVNa0ZCUVVGQlIzSXRVMDFuU0hCcFgyMUJFZ05VVWpnYUN3akNxQVFRQWhvRFUwZEVPQnh3eWF3RCIsW1siU0lOIiwiMjAyNy0wMS0xNCIsIlBFUiIsbnVsbCwiVFIiLCI4Il1dXQ=="
+    }
+  ]
+}

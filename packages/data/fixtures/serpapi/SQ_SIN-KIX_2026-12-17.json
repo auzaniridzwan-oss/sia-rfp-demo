@@ -1,0 +1,125 @@
+{
+  "other_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-17 14:25"
+          },
+          "arrival_airport": {
+            "name": "Kansai International Airport",
+            "id": "KIX",
+            "time": "2026-12-17 21:25"
+          },
+          "duration": 360,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 622",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 254 kg"
+          ]
+        }
+      ],
+      "total_duration": 360,
+      "carbon_emissions": {
+        "this_flight": 254000,
+        "typical_for_this_route": 431000,
+        "difference_percent": -41
+      },
+      "price": 1469,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJVXpKUVdqQlJNa3BQYW1kQlFUYzRTSGRDUnkwdExTMHRMUzB0TFhscFkzSTVNVUZCUVVGQlIzSXRVMDlSUzBVME1EaEJFZ1ZUVVRZeU1ob0xDSVQ3Q0JBQ0dnTlRSMFE0SEhEZCtRWT0iLFtbIlNJTiIsIjIwMjYtMTItMTciLCJLSVgiLG51bGwsIlNRIiwiNjIyIl1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-17 01:30"
+          },
+          "arrival_airport": {
+            "name": "Kansai International Airport",
+            "id": "KIX",
+            "time": "2026-12-17 08:35"
+          },
+          "duration": 365,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 618",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 254 kg"
+          ],
+          "overnight": true
+        }
+      ],
+      "total_duration": 365,
+      "carbon_emissions": {
+        "this_flight": 254000,
+        "typical_for_this_route": 431000,
+        "difference_percent": -41
+      },
+      "price": 2256,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJVXpKUVdqQlJNa3BQYW1kQlFUYzRTSGRDUnkwdExTMHRMUzB0TFhscFkzSTVNVUZCUVVGQlIzSXRVMDlSUzBVME1EaEJFZ1ZUVVRZeE9Cb0xDUERoRFJBQ0dnTlRSMFE0SEhEUzFnbz0iLFtbIlNJTiIsIjIwMjYtMTItMTciLCJLSVgiLG51bGwsIlNRIiwiNjE4Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-17 08:25"
+          },
+          "arrival_airport": {
+            "name": "Kansai International Airport",
+            "id": "KIX",
+            "time": "2026-12-17 15:30"
+          },
+          "duration": 365,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 620",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 254 kg"
+          ]
+        }
+      ],
+      "total_duration": 365,
+      "carbon_emissions": {
+        "this_flight": 254000,
+        "typical_for_this_route": 431000,
+        "difference_percent": -41
+      },
+      "price": 2256,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJVXpKUVdqQlJNa3BQYW1kQlFUYzRTSGRDUnkwdExTMHRMUzB0TFhscFkzSTVNVUZCUVVGQlIzSXRVMDlSUzBVME1EaEJFZ1ZUVVRZeU1Cb0xDUERoRFJBQ0dnTlRSMFE0SEhEUzFnbz0iLFtbIlNJTiIsIjIwMjYtMTItMTciLCJLSVgiLG51bGwsIlNRIiwiNjIwIl1dXQ=="
+    }
+  ]
+}

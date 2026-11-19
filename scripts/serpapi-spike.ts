@@ -2,7 +2,7 @@
  * Phase 0 destination spike (decision D4).
  *
  * For each primary route, query SerpAPI Google Flights once per airline (SQ, TR)
- * at +2, +4 and +8 weeks. A route passes when BOTH airlines return >= 3 itineraries
+ * at +2, +4 and +8 weeks. A route passes when BOTH airlines return >= 2 itineraries
  * on every date. A failing primary is replaced by its fallback, which is then tested.
  * Successful responses are saved as fixtures for offline demos.
  *
@@ -23,7 +23,8 @@ if (!KEY) {
 
 const FIXTURE_DIR = path.resolve('packages/data/fixtures/serpapi');
 const WEEKS = [2, 4, 8];
-const MIN_ITINERARIES = 3;
+// 2 per airline per date = at least two daily frequencies to choose from in the demo.
+const MIN_ITINERARIES = 2;
 
 interface Leg { airline?: string; flight_number?: string }
 interface Itinerary { flights?: Leg[]; price?: number; total_duration?: number }

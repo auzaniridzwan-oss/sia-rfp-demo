@@ -1,7 +1,13 @@
 /**
  * Demo route list (decision D4). Origin is fixed to Changi; every destination must be
  * served by both SQ and TR so SerpAPI returns real flights on both sites.
- * `status` is updated from the Phase 0 SerpAPI spike (scripts/serpapi-spike.ts).
+ * `status` comes from the Phase 0 SerpAPI spike (scripts/serpapi-spike.ts, run 2026-11-19 for
+ * departures on 2026-12-03, 2026-12-17 and 2027-01-14; results saved in fixtures/serpapi):
+ *   PER  SQ 4 nonstop/day, TR 2 nonstop/day  -> validated
+ *   NRT  SQ 2 nonstop/day, TR 3/day (1 nonstop, 2 via TPE/BKK) -> validated
+ *   BKK  SQ 6-7 nonstop/day, TR 6 nonstop/day -> validated
+ *   KIX  TR only 1/day -> rejected as fallback (too few Scoot options)
+ *   SYD  not tested (no primary failed)
  */
 export const DEMO_ORIGIN = { code: 'SIN', city: 'Singapore' } as const;
 
@@ -16,10 +22,10 @@ export interface Destination {
 }
 
 export const DESTINATIONS: Destination[] = [
-  { code: 'PER', city: 'Perth', country: 'Australia', role: 'primary', status: 'proposed' },
-  { code: 'NRT', city: 'Tokyo (Narita)', country: 'Japan', role: 'primary', status: 'proposed' },
-  { code: 'BKK', city: 'Bangkok', country: 'Thailand', role: 'primary', status: 'proposed' },
-  { code: 'KIX', city: 'Osaka', country: 'Japan', role: 'fallback', fallbackFor: 'NRT', status: 'proposed' },
+  { code: 'PER', city: 'Perth', country: 'Australia', role: 'primary', status: 'validated' },
+  { code: 'NRT', city: 'Tokyo (Narita)', country: 'Japan', role: 'primary', status: 'validated' },
+  { code: 'BKK', city: 'Bangkok', country: 'Thailand', role: 'primary', status: 'validated' },
+  { code: 'KIX', city: 'Osaka', country: 'Japan', role: 'fallback', fallbackFor: 'NRT', status: 'rejected' },
   { code: 'SYD', city: 'Sydney', country: 'Australia', role: 'fallback', fallbackFor: 'BKK', status: 'proposed' },
 ];
 

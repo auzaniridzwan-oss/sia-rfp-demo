@@ -1,0 +1,174 @@
+{
+  "other_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-17 06:35"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2026-12-17 14:30"
+          },
+          "duration": 415,
+          "airplane": "Boeing 787",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 802",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "34 in",
+          "extensions": [
+            "Above average legroom (34 in)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 358 kg"
+          ],
+          "plane_and_crew_by": "Air Japan"
+        }
+      ],
+      "total_duration": 415,
+      "carbon_emissions": {
+        "this_flight": 358000,
+        "typical_for_this_route": 392000,
+        "difference_percent": -9
+      },
+      "price": 816,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+      "booking_token": "WyJDalJJT0VjNFRGSkNNamRCU0ZWQlFrNXFRMEZDUnkwdExTMHRMUzB0ZDJKMU5DMXVNVUZCUVVGQlIzSXRVMDVWU0VVeU1sZEJFZ1ZPU0Rnd01ob0xDUEQ4QkJBQ0dnTlRSMFE0SEhDQjdnTT0iLFtbIlNJTiIsIjIwMjYtMTItMTciLCJOUlQiLG51bGwsIk5IIiwiODAyIl1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-17 09:20"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2026-12-17 17:05"
+          },
+          "duration": 405,
+          "airplane": "Boeing 777",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 12",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 445 kg"
+          ]
+        }
+      ],
+      "total_duration": 405,
+      "carbon_emissions": {
+        "this_flight": 445000,
+        "typical_for_this_route": 392000,
+        "difference_percent": 14
+      },
+      "price": 1552,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJT0VjNFRGSkNNamRCU0ZWQlFrNXFRMEZDUnkwdExTMHRMUzB0ZDJKMU5DMXVNVUZCUVVGQlIzSXRVMDVWU0VVeU1sZEJFZ1JUVVRFeUdnc0k4THNKRUFJYUExTkhSRGdjY0lPc0J3PT0iLFtbIlNJTiIsIjIwMjYtMTItMTciLCJOUlQiLG51bGwsIlNRIiwiMTIiXV1d"
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-17 23:55"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2026-12-18 07:30"
+          },
+          "duration": 395,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 638",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 259 kg"
+          ],
+          "overnight": true
+        }
+      ],
+      "total_duration": 395,
+      "carbon_emissions": {
+        "this_flight": 260000,
+        "typical_for_this_route": 392000,
+        "difference_percent": -34
+      },
+      "price": 1552,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJT0VjNFRGSkNNamRCU0ZWQlFrNXFRMEZDUnkwdExTMHRMUzB0ZDJKMU5DMXVNVUZCUVVGQlIzSXRVMDVWU0VVeU1sZEJFZ1ZUVVRZek9Cb0xDUEM3Q1JBQ0dnTlRSMFE0SEhDRHJBYz0iLFtbIlNJTiIsIjIwMjYtMTItMTciLCJOUlQiLG51bGwsIlNRIiwiNjM4Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-17 00:55"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2026-12-17 08:40"
+          },
+          "duration": 405,
+          "airplane": "Boeing 787",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 804",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "34 in",
+          "extensions": [
+            "Above average legroom (34 in)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 358 kg"
+          ],
+          "overnight": true,
+          "plane_and_crew_by": "Air Japan"
+        }
+      ],
+      "total_duration": 405,
+      "carbon_emissions": {
+        "this_flight": 358000,
+        "typical_for_this_route": 392000,
+        "difference_percent": -9
+      },
+      "price": 1686,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+      "booking_token": "WyJDalJJT0VjNFRGSkNNamRCU0ZWQlFrNXFRMEZDUnkwdExTMHRMUzB0ZDJKMU5DMXVNVUZCUVVGQlIzSXRVMDVWU0VVeU1sZEJFZ1ZPU0Rnd05Cb0xDTWlrQ2hBQ0dnTlRSMFE0SEhDZC9RYz0iLFtbIlNJTiIsIjIwMjYtMTItMTciLCJOUlQiLG51bGwsIk5IIiwiODA0Il1dXQ=="
+    }
+  ]
+}

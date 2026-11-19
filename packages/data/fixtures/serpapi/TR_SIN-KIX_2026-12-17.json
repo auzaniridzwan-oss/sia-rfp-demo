@@ -1,0 +1,44 @@
+{
+  "other_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-17 03:05"
+          },
+          "arrival_airport": {
+            "name": "Kansai International Airport",
+            "id": "KIX",
+            "time": "2026-12-17 10:15"
+          },
+          "duration": 370,
+          "airplane": "Boeing 787",
+          "airline": "Scoot",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/TR.png",
+          "travel_class": "Economy",
+          "flight_number": "TR 880",
+          "legroom": "30 in",
+          "extensions": [
+            "Average legroom (30 in)",
+            "Wi-Fi for a fee",
+            "In-seat power outlet",
+            "Carbon emissions estimate: 299 kg"
+          ],
+          "overnight": true
+        }
+      ],
+      "total_duration": 370,
+      "carbon_emissions": {
+        "this_flight": 299000,
+        "typical_for_this_route": 431000,
+        "difference_percent": -31
+      },
+      "price": 398,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/TR.png",
+      "booking_token": "WyJDalJJWkVoUFdtaElVV3hZVVc5QlFsQk9UR2RDUnkwdExTMHRMUzB0ZG5SaVpIQXhOMEZCUVVGQlIzSXRVMDlWVDJ0R1NYbEJFZ1ZVVWpnNE1Cb0xDS2kyQWhBQ0dnTlRSMFE0SEhEYThBRT0iLFtbIlNJTiIsIjIwMjYtMTItMTciLCJLSVgiLG51bGwsIlRSIiwiODgwIl1dXQ=="
+    }
+  ]
+}

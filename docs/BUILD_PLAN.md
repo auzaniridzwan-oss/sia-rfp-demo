@@ -1,12 +1,13 @@
 # SIA Group Demo Websites — Build Plan (for review)
 
-**Status:** v0.3 · 2026-11-19 · Nothing built yet. All decisions D1–D13 are made (see §8). One item needs your confirmation: the destination list in D4/D5.
+**Status:** v0.4 · 2026-11-19 · Phase 0 complete except for the Vercel import. All decisions D1–D13 are made (see §8).
 
 | Version | Change |
 |---|---|
 | 0.1 | Initial plan |
 | 0.2 | Brand tokens (§2a) and ancillary catalogues (§2b) now taken from the brand-asset Drive folder (`singaporeair-design-tokens.md`, `scoot-design-tokens.md`, `singaporeair-ancillaries.md`, `scoot-ancillaries.md`). Replaced my earlier guessed ancillary and seat names; the Scoot brand-extraction step is no longer needed. |
 | 0.3 | Decisions D1–D13 applied: React + TypeScript rewrite, destinations served by both SQ and TR (London dropped), workspace and SDK keys, Marcellus display font, Scoot logo, illustrative Scoot prices, one generic Scoot bundle, `sia_page_viewed` on by default. Estimate increased for the rewrite. |
+| 0.4 | Phase 0 results: destinations validated by SerpAPI (D4); Braze REST endpoint confirmed as `rest.iad-03.braze.com`. |
 
 **Inputs reviewed**
 - `siademo-web` — SIA shell, hero + booking widget, SerpAPI proxy (`/api/serpapi/flights|fares|pricing-trend`), fare grid (Lite/Value/Standard/Flexi), registration gate, debug drawer + REST profile proxy (`/api/braze/user-data`). **No** ancillary/seat/payment steps.
@@ -84,7 +85,7 @@ Theme tokens come from the brand-asset Drive folder. See §2a. They replace the 
   | sq-web | `5289a0ce-f873-450c-a1df-1a412ea78a44` |
   | tr-web | `e771b7af-769d-4148-8e8a-9a0a1cc7e67c` |
 
-  Web SDK keys are public by design (they ship in the browser bundle), so they go in each app's `.env.example`. The REST API key and the matching REST endpoint (`rest.iad-03.braze.com`, to confirm) stay server-only and are never committed.
+  Web SDK keys are public by design (they ship in the browser bundle), so they go in each app's `.env.example`. The REST API key and the REST endpoint (`rest.iad-03.braze.com`, confirmed in Phase 0) stay server-only and are never committed.
 - **SerpAPI key never ships to the browser** (kept from `siademo-web`). Add response caching (per route+date, ~6h) and **recorded fixtures as fallback** so a quota miss or API outage never breaks a live demo.
 
 ---
@@ -331,7 +332,7 @@ About 13 working days (up from 9–10, because of the React + TypeScript rewrite
 | D1 | Repo | New monorepo `sia-group-demo` |
 | D2 | Stack | React + TypeScript rewrite (§1) |
 | D3 | CEID | Hashed-email deterministic ID (§3) |
-| D4 | Destinations | PER, NRT, BKK, served by both SQ and TR. Fallbacks KIX / SYD. **Confirm the list**; the Phase 0 spike validates it |
+| D4 | Destinations | **PER, NRT, BKK — validated** by the Phase 0 SerpAPI test (2026-11-19). Both airlines returned real flights on all 3 test dates: PER SQ 4/day, TR 2/day; NRT SQ 2/day, TR 3/day (1 nonstop); BKK SQ 6–7/day, TR 6/day. Pass bar is 2 itineraries per airline per date. KIX rejected (Scoot 1/day); SYD not needed |
 | D5 | London | Dropped (covered by D4) |
 | D6 | Kris+ | Entity only, no website |
 | D7 | `sia_page_viewed` | On by default |

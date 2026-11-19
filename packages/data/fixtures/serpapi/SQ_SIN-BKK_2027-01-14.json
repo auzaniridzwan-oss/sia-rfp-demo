@@ -1,0 +1,286 @@
+{
+  "best_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-14 09:15"
+          },
+          "arrival_airport": {
+            "name": "Suvarnabhumi Airport",
+            "id": "BKK",
+            "time": "2027-01-14 11:00"
+          },
+          "duration": 165,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 708",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 87 kg"
+          ]
+        }
+      ],
+      "total_duration": 165,
+      "carbon_emissions": {
+        "this_flight": 88000,
+        "typical_for_this_route": 106000,
+        "difference_percent": -17
+      },
+      "price": 344,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJWTFNNVYxUXdWMVJzZWtGQlFrdFdjRUZDUnkwdExTMHRMUzB0TFhaMGVYa3hNa0ZCUVVGQlIzSXRVMUJaVEdKaVMwVkJFZ1ZUVVRjd09Cb0xDTGlNQWhBQ0dnTlRSMFE0SEhDYzBBRT0iLFtbIlNJTiIsIjIwMjctMDEtMTQiLCJCS0siLG51bGwsIlNRIiwiNzA4Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-14 10:40"
+          },
+          "arrival_airport": {
+            "name": "Suvarnabhumi Airport",
+            "id": "BKK",
+            "time": "2027-01-14 12:10"
+          },
+          "duration": 150,
+          "airplane": "Airbus A350",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 722",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 109 kg"
+          ]
+        }
+      ],
+      "total_duration": 150,
+      "carbon_emissions": {
+        "this_flight": 110000,
+        "typical_for_this_route": 106000,
+        "difference_percent": 4
+      },
+      "price": 344,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJWTFNNVYxUXdWMVJzZWtGQlFrdFdjRUZDUnkwdExTMHRMUzB0TFhaMGVYa3hNa0ZCUVVGQlIzSXRVMUJaVEdKaVMwVkJFZ1ZUVVRjeU1ob0xDTGlNQWhBQ0dnTlRSMFE0SEhDYzBBRT0iLFtbIlNJTiIsIjIwMjctMDEtMTQiLCJCS0siLG51bGwsIlNRIiwiNzIyIl1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-14 13:15"
+          },
+          "arrival_airport": {
+            "name": "Suvarnabhumi Airport",
+            "id": "BKK",
+            "time": "2027-01-14 14:35"
+          },
+          "duration": 140,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 710",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 87 kg"
+          ]
+        }
+      ],
+      "total_duration": 140,
+      "carbon_emissions": {
+        "this_flight": 88000,
+        "typical_for_this_route": 106000,
+        "difference_percent": -17
+      },
+      "price": 344,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJWTFNNVYxUXdWMVJzZWtGQlFrdFdjRUZDUnkwdExTMHRMUzB0TFhaMGVYa3hNa0ZCUVVGQlIzSXRVMUJaVEdKaVMwVkJFZ1ZUVVRjeE1Cb0xDTGlNQWhBQ0dnTlRSMFE0SEhDYzBBRT0iLFtbIlNJTiIsIjIwMjctMDEtMTQiLCJCS0siLG51bGwsIlNRIiwiNzEwIl1dXQ=="
+    }
+  ],
+  "other_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-14 07:00"
+          },
+          "arrival_airport": {
+            "name": "Suvarnabhumi Airport",
+            "id": "BKK",
+            "time": "2027-01-14 08:25"
+          },
+          "duration": 145,
+          "airplane": "Airbus A350",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 706",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 109 kg"
+          ]
+        }
+      ],
+      "total_duration": 145,
+      "carbon_emissions": {
+        "this_flight": 110000,
+        "typical_for_this_route": 106000,
+        "difference_percent": 4
+      },
+      "price": 344,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJWTFNNVYxUXdWMVJzZWtGQlFrdFdjRUZDUnkwdExTMHRMUzB0TFhaMGVYa3hNa0ZCUVVGQlIzSXRVMUJaVEdKaVMwVkJFZ1ZUVVRjd05ob0xDTGlNQWhBQ0dnTlRSMFE0SEhDYzBBRT0iLFtbIlNJTiIsIjIwMjctMDEtMTQiLCJCS0siLG51bGwsIlNRIiwiNzA2Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-14 15:25"
+          },
+          "arrival_airport": {
+            "name": "Suvarnabhumi Airport",
+            "id": "BKK",
+            "time": "2027-01-14 17:00"
+          },
+          "duration": 155,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 712",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 87 kg"
+          ]
+        }
+      ],
+      "total_duration": 155,
+      "carbon_emissions": {
+        "this_flight": 88000,
+        "typical_for_this_route": 106000,
+        "difference_percent": -17
+      },
+      "price": 344,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJWTFNNVYxUXdWMVJzZWtGQlFrdFdjRUZDUnkwdExTMHRMUzB0TFhaMGVYa3hNa0ZCUVVGQlIzSXRVMUJaVEdKaVMwVkJFZ1ZUVVRjeE1ob0xDTGlNQWhBQ0dnTlRSMFE0SEhDYzBBRT0iLFtbIlNJTiIsIjIwMjctMDEtMTQiLCJCS0siLG51bGwsIlNRIiwiNzEyIl1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-14 17:10"
+          },
+          "arrival_airport": {
+            "name": "Suvarnabhumi Airport",
+            "id": "BKK",
+            "time": "2027-01-14 18:45"
+          },
+          "duration": 155,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 714",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 87 kg"
+          ]
+        }
+      ],
+      "total_duration": 155,
+      "carbon_emissions": {
+        "this_flight": 88000,
+        "typical_for_this_route": 106000,
+        "difference_percent": -17
+      },
+      "price": 344,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJWTFNNVYxUXdWMVJzZWtGQlFrdFdjRUZDUnkwdExTMHRMUzB0TFhaMGVYa3hNa0ZCUVVGQlIzSXRVMUJaVEdKaVMwVkJFZ1ZUVVRjeE5Cb0xDTGlNQWhBQ0dnTlRSMFE0SEhDYzBBRT0iLFtbIlNJTiIsIjIwMjctMDEtMTQiLCJCS0siLG51bGwsIlNRIiwiNzE0Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2027-01-14 18:35"
+          },
+          "arrival_airport": {
+            "name": "Suvarnabhumi Airport",
+            "id": "BKK",
+            "time": "2027-01-14 20:00"
+          },
+          "duration": 145,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 720",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 87 kg"
+          ]
+        }
+      ],
+      "total_duration": 145,
+      "carbon_emissions": {
+        "this_flight": 88000,
+        "typical_for_this_route": 106000,
+        "difference_percent": -17
+      },
+      "price": 344,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJWTFNNVYxUXdWMVJzZWtGQlFrdFdjRUZDUnkwdExTMHRMUzB0TFhaMGVYa3hNa0ZCUVVGQlIzSXRVMUJaVEdKaVMwVkJFZ1ZUVVRjeU1Cb0xDTGlNQWhBQ0dnTlRSMFE0SEhDYzBBRT0iLFtbIlNJTiIsIjIwMjctMDEtMTQiLCJCS0siLG51bGwsIlNRIiwiNzIwIl1dXQ=="
+    }
+  ]
+}

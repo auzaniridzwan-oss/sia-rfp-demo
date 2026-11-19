@@ -1,0 +1,165 @@
+{
+  "other_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-17 00:25"
+          },
+          "arrival_airport": {
+            "name": "Perth Airport",
+            "id": "PER",
+            "time": "2026-12-17 05:25"
+          },
+          "duration": 300,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 225",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 199 kg"
+          ],
+          "overnight": true
+        }
+      ],
+      "total_duration": 300,
+      "carbon_emissions": {
+        "this_flight": 199000,
+        "typical_for_this_route": 327000,
+        "difference_percent": -39
+      },
+      "price": 309,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJYUZSMWQxRldNVEEwU1d0QlFYcGllRUZDUnkwdExTMHRMUzB0TFMxdmEzZGtOVUZCUVVGQlIzSXRVMDFSUkdRd1IzbEJFZ1ZUVVRJeU5Sb0xDS3J4QVJBQ0dnTlRSMFE0SEhDWnV3RT0iLFtbIlNJTiIsIjIwMjYtMTItMTciLCJQRVIiLG51bGwsIlNRIiwiMjI1Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-17 07:15"
+          },
+          "arrival_airport": {
+            "name": "Perth Airport",
+            "id": "PER",
+            "time": "2026-12-17 12:35"
+          },
+          "duration": 320,
+          "airplane": "Airbus A350",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 213",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 248 kg"
+          ]
+        }
+      ],
+      "total_duration": 320,
+      "carbon_emissions": {
+        "this_flight": 249000,
+        "typical_for_this_route": 327000,
+        "difference_percent": -24
+      },
+      "price": 427,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJYUZSMWQxRldNVEEwU1d0QlFYcGllRUZDUnkwdExTMHRMUzB0TFMxdmEzZGtOVUZCUVVGQlIzSXRVMDFSUkdRd1IzbEJFZ1ZUVVRJeE14b0xDTUxOQWhBQ0dnTlRSMFE0SEhEYWdnST0iLFtbIlNJTiIsIjIwMjYtMTItMTciLCJQRVIiLG51bGwsIlNRIiwiMjEzIl1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-17 19:00"
+          },
+          "arrival_airport": {
+            "name": "Perth Airport",
+            "id": "PER",
+            "time": "2026-12-18 00:05"
+          },
+          "duration": 305,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 215",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 199 kg"
+          ]
+        }
+      ],
+      "total_duration": 305,
+      "carbon_emissions": {
+        "this_flight": 199000,
+        "typical_for_this_route": 327000,
+        "difference_percent": -39
+      },
+      "price": 797,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJYUZSMWQxRldNVEEwU1d0QlFYcGllRUZDUnkwdExTMHRMUzB0TFMxdmEzZGtOVUZCUVVGQlIzSXRVMDFSUkdRd1IzbEJFZ1ZUVVRJeE5Sb0xDTXJ1QkJBQ0dnTlRSMFE0SEhEMjRnTT0iLFtbIlNJTiIsIjIwMjYtMTItMTciLCJQRVIiLG51bGwsIlNRIiwiMjE1Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-17 09:30"
+          },
+          "arrival_airport": {
+            "name": "Perth Airport",
+            "id": "PER",
+            "time": "2026-12-17 14:45"
+          },
+          "duration": 315,
+          "airplane": "Airbus A350",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 223",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 248 kg"
+          ]
+        }
+      ],
+      "total_duration": 315,
+      "carbon_emissions": {
+        "this_flight": 249000,
+        "typical_for_this_route": 327000,
+        "difference_percent": -24
+      },
+      "price": 974,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJYUZSMWQxRldNVEEwU1d0QlFYcGllRUZDUnkwdExTMHRMUzB0TFMxdmEzZGtOVUZCUVVGQlIzSXRVMDFSUkdRd1IzbEJFZ1ZUVVRJeU14b0xDTzc0QlJBQ0dnTlRSMFE0SEhDWHpnUT0iLFtbIlNJTiIsIjIwMjYtMTItMTciLCJQRVIiLG51bGwsIlNRIiwiMjIzIl1dXQ=="
+    }
+  ]
+}

@@ -1,0 +1,438 @@
+{
+  "best_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-03 08:25"
+          },
+          "arrival_airport": {
+            "name": "Kansai International Airport",
+            "id": "KIX",
+            "time": "2026-12-03 15:30"
+          },
+          "duration": 365,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 620",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 254 kg"
+          ]
+        }
+      ],
+      "total_duration": 365,
+      "carbon_emissions": {
+        "this_flight": 254000,
+        "typical_for_this_route": 431000,
+        "difference_percent": -41
+      },
+      "price": 2256,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJWTBGR1QyOURUbkYxYUhOQlFtcGFVSGRDUnkwdExTMHRMUzB0TFhaM1pIVXhNVUZCUVVGQlIzSXRVMDlCUkhndFVrZEJFZ1ZUVVRZeU1Cb0xDUERoRFJBQ0dnTlRSMFE0SEhEUzFnbz0iLFtbIlNJTiIsIjIwMjYtMTItMDMiLCJLSVgiLG51bGwsIlNRIiwiNjIwIl1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-03 14:25"
+          },
+          "arrival_airport": {
+            "name": "Kansai International Airport",
+            "id": "KIX",
+            "time": "2026-12-03 21:25"
+          },
+          "duration": 360,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 622",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 254 kg"
+          ]
+        }
+      ],
+      "total_duration": 360,
+      "carbon_emissions": {
+        "this_flight": 254000,
+        "typical_for_this_route": 431000,
+        "difference_percent": -41
+      },
+      "price": 2256,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJWTBGR1QyOURUbkYxYUhOQlFtcGFVSGRDUnkwdExTMHRMUzB0TFhaM1pIVXhNVUZCUVVGQlIzSXRVMDlCUkhndFVrZEJFZ1ZUVVRZeU1ob0xDUERoRFJBQ0dnTlRSMFE0SEhEUzFnbz0iLFtbIlNJTiIsIjIwMjYtMTItMDMiLCJLSVgiLG51bGwsIlNRIiwiNjIyIl1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-03 01:30"
+          },
+          "arrival_airport": {
+            "name": "Kansai International Airport",
+            "id": "KIX",
+            "time": "2026-12-03 08:35"
+          },
+          "duration": 365,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 618",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 254 kg"
+          ],
+          "overnight": true
+        }
+      ],
+      "total_duration": 365,
+      "carbon_emissions": {
+        "this_flight": 254000,
+        "typical_for_this_route": 431000,
+        "difference_percent": -41
+      },
+      "price": 2329,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+      "booking_token": "WyJDalJJWTBGR1QyOURUbkYxYUhOQlFtcGFVSGRDUnkwdExTMHRMUzB0TFhaM1pIVXhNVUZCUVVGQlIzSXRVMDlCUkhndFVrZEJFZ1ZUVVRZeE9Cb0xDS3ViRGhBQ0dnTlRSMFE0SEhDYmd3cz0iLFtbIlNJTiIsIjIwMjYtMTItMDMiLCJLSVgiLG51bGwsIlNRIiwiNjE4Il1dXQ=="
+    }
+  ],
+  "other_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-03 14:05"
+          },
+          "arrival_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2026-12-03 21:40"
+          },
+          "duration": 395,
+          "airplane": "Airbus A350",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 634",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 318 kg"
+          ]
+        },
+        {
+          "departure_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2026-12-04 20:30"
+          },
+          "arrival_airport": {
+            "name": "Kansai International Airport",
+            "id": "KIX",
+            "time": "2026-12-04 21:50"
+          },
+          "duration": 80,
+          "airplane": "Boeing 787-10",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 97",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "31 in",
+          "extensions": [
+            "Average legroom (31 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 58 kg"
+          ]
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 1370,
+          "name": "Haneda Airport",
+          "id": "HND"
+        }
+      ],
+      "total_duration": 1845,
+      "carbon_emissions": {
+        "this_flight": 377000,
+        "typical_for_this_route": 431000,
+        "difference_percent": -13
+      },
+      "price": 1723,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+      "booking_token": "WyJDalJJWTBGR1QyOURUbkYxYUhOQlFtcGFVSGRDUnkwdExTMHRMUzB0TFhaM1pIVXhNVUZCUVVGQlIzSXRVMDlCUkhndFVrZEJFZ3BUVVRZek5IeE9TRGszR2dzSStzRUtFQUlhQTFOSFJEZ2NjSU9VQ0E9PSIsW1siU0lOIiwiMjAyNi0xMi0wMyIsIkhORCIsbnVsbCwiU1EiLCI2MzQiXSxbIkhORCIsIjIwMjYtMTItMDQiLCJLSVgiLG51bGwsIk5IIiwiOTciXV1d"
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-03 23:55"
+          },
+          "arrival_airport": {
+            "name": "Narita International Airport",
+            "id": "NRT",
+            "time": "2026-12-04 07:30"
+          },
+          "duration": 395,
+          "airplane": "Boeing 787",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 638",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 259 kg"
+          ],
+          "overnight": true
+        },
+        {
+          "departure_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2026-12-04 20:30"
+          },
+          "arrival_airport": {
+            "name": "Kansai International Airport",
+            "id": "KIX",
+            "time": "2026-12-04 21:50"
+          },
+          "duration": 80,
+          "airplane": "Boeing 787-10",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 97",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "31 in",
+          "extensions": [
+            "Average legroom (31 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 58 kg"
+          ]
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 780,
+          "name": "Haneda Airport",
+          "id": "NRT"
+        }
+      ],
+      "total_duration": 1255,
+      "carbon_emissions": {
+        "this_flight": 319000,
+        "typical_for_this_route": 431000,
+        "difference_percent": -26
+      },
+      "price": 1723,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+      "booking_token": "WyJDalJJWTBGR1QyOURUbkYxYUhOQlFtcGFVSGRDUnkwdExTMHRMUzB0TFhaM1pIVXhNVUZCUVVGQlIzSXRVMDlCUkhndFVrZEJFZ3BUVVRZek9IeE9TRGszR2dzSStzRUtFQUlhQTFOSFJEZ2NjSU9VQ0E9PSIsW1siU0lOIiwiMjAyNi0xMi0wMyIsIk5SVCIsbnVsbCwiU1EiLCI2MzgiXSxbIkhORCIsIjIwMjYtMTItMDQiLCJLSVgiLG51bGwsIk5IIiwiOTciXV1d"
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-03 22:55"
+          },
+          "arrival_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2026-12-04 06:20"
+          },
+          "duration": 385,
+          "airplane": "Boeing 777",
+          "airline": "Singapore Airlines",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/SQ.png",
+          "travel_class": "Economy",
+          "flight_number": "SQ 636",
+          "legroom": "32 in",
+          "extensions": [
+            "Above average legroom (32 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 437 kg"
+          ],
+          "overnight": true
+        },
+        {
+          "departure_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2026-12-04 20:30"
+          },
+          "arrival_airport": {
+            "name": "Kansai International Airport",
+            "id": "KIX",
+            "time": "2026-12-04 21:50"
+          },
+          "duration": 80,
+          "airplane": "Boeing 787-10",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 97",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "31 in",
+          "extensions": [
+            "Average legroom (31 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 58 kg"
+          ]
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 850,
+          "name": "Haneda Airport",
+          "id": "HND"
+        }
+      ],
+      "total_duration": 1315,
+      "carbon_emissions": {
+        "this_flight": 496000,
+        "typical_for_this_route": 431000,
+        "difference_percent": 15
+      },
+      "price": 2403,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+      "booking_token": "WyJDalJJWTBGR1QyOURUbkYxYUhOQlFtcGFVSGRDUnkwdExTMHRMUzB0TFhaM1pIVXhNVUZCUVVGQlIzSXRVMDlCUkhndFVrZEJFZ3BUVVRZek5ueE9TRGszR2dzSTVOUU9FQUlhQTFOSFJEZ2NjT092Q3c9PSIsW1siU0lOIiwiMjAyNi0xMi0wMyIsIkhORCIsbnVsbCwiU1EiLCI2MzYiXSxbIkhORCIsIjIwMjYtMTItMDQiLCJLSVgiLG51bGwsIk5IIiwiOTciXV1d"
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Singapore Changi Airport",
+            "id": "SIN",
+            "time": "2026-12-03 22:20"
+          },
+          "arrival_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2026-12-04 05:55"
+          },
+          "duration": 395,
+          "airplane": "Boeing 787",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 844",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "34 in",
+          "extensions": [
+            "Above average legroom (34 in)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 351 kg"
+          ],
+          "overnight": true,
+          "plane_and_crew_by": "Air Japan"
+        },
+        {
+          "departure_airport": {
+            "name": "Haneda Airport",
+            "id": "HND",
+            "time": "2026-12-04 20:30"
+          },
+          "arrival_airport": {
+            "name": "Kansai International Airport",
+            "id": "KIX",
+            "time": "2026-12-04 21:50"
+          },
+          "duration": 80,
+          "airplane": "Boeing 787-10",
+          "airline": "ANA",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+          "travel_class": "Economy",
+          "flight_number": "NH 97",
+          "ticket_also_sold_by": [
+            "Singapore Airlines"
+          ],
+          "legroom": "31 in",
+          "extensions": [
+            "Average legroom (31 in)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "On-demand video",
+            "Carbon emissions estimate: 58 kg"
+          ]
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 875,
+          "name": "Haneda Airport",
+          "id": "HND"
+        }
+      ],
+      "total_duration": 1350,
+      "carbon_emissions": {
+        "this_flight": 411000,
+        "typical_for_this_route": 431000,
+        "difference_percent": -5
+      },
+      "price": 2448,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+      "booking_token": "WyJDalJJWTBGR1QyOURUbkYxYUhOQlFtcGFVSGRDUnkwdExTMHRMUzB0TFhaM1pIVXhNVUZCUVVGQlIzSXRVMDlCUkhndFVrZEJFZ3BPU0RnME5IeE9TRGszR2dzSXJmZ09FQUlhQTFOSFJEZ2NjSy9MQ3c9PSIsW1siU0lOIiwiMjAyNi0xMi0wMyIsIkhORCIsbnVsbCwiTkgiLCI4NDQiXSxbIkhORCIsIjIwMjYtMTItMDQiLCJLSVgiLG51bGwsIk5IIiwiOTciXV1d"
+    }
+  ]
+}
