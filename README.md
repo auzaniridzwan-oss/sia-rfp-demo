@@ -17,19 +17,28 @@ Every push to `main` deploys both.
 |---|---|
 | `apps/sq-web` | Singapore Airlines site (`entity: SQ`) — Vite + React + TS |
 | `apps/tr-web` | Scoot site (`entity: TR`) |
+| `apps/*/api` | Vercel functions (thin wrappers that bind the entity and call `@sia/server`) |
 | `packages/theme` | Shared Tailwind preset + `applyTheme(tokens)`; each app ships its own `src/theme/tokens.json` |
-| `packages/core` | Brand-agnostic logic (entity types now; Braze wrapper, events, booking rules from Phase 1) |
-| `packages/data` | Demo data: destinations (and later ancillaries, seat maps, SerpAPI fixtures) |
-| `scripts/` | Dev scripts (`serpapi-spike.ts`) |
+| `packages/core` | Brand-agnostic TS: `BrazeClient`, typed event catalog, CEID identity, storage, logger, Zod schemas, booking rules + store |
+| `packages/react` | `BrazeProvider` and hooks (`useTrack`, `usePageView`, `useContentCards`, `useBanner`, `useBrazeProfile`, `useBooking`) |
+| `packages/ui` | Shared components: `<BrazeDebug />` overlay |
+| `packages/data` | Destinations, ancillary catalogues; SerpAPI fixtures (server-only: `@sia/data/fixtures`) |
+| `packages/server` | Request handlers: `/api/flights` (SerpAPI + cache + fixture fallback), `/api/braze/profile`, `/api/health` |
+| `braze/schema.json` | Generated event/attribute dictionary (`pnpm schema:export`) |
+| `scripts/` | `dev-api.ts`, `serpapi-spike.ts`, `gen-fixture-index.ts`, `export-schema.ts` |
 
 ## Setup
 
 ```bash
 corepack enable          # once, provides pnpm 9 from packageManager
 pnpm install
+pnpm dev:api             # local /api on :3000 (reads .env)
 pnpm dev:sq              # http://localhost:5173
 pnpm dev:tr              # http://localhost:5174
+pnpm test                # unit tests
 ```
+
+Add `?debug=true` (or press Shift+D) to open the Braze debug overlay. Any `@example.com` email in the sign-in harness becomes a `ceid_test_` user.
 
 Copy `.env.example` to `.env` at the repo root for scripts (SerpAPI, Braze REST). Never commit `.env`. The Braze **Web SDK** keys are public and already defaulted in each app's `brand.config.ts`.
 

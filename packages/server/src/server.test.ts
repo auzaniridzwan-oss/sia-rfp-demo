@@ -1,0 +1,68 @@
+import { describe, expect, it } from 'vitest';
+import { fixtureResponse } from './serpapi';
+import { handleBrazeProfile, handleFlights, handleHealth } from './handlers';
+import { maskEmail } from './braze-rest';
+
+const inDays = (n: number) => new Date(Date.now() + n * 86_400_000).toISOString().slice(0, 10);
+const env = {}; // no keys: forces the offline path
+
+describe('fixtureResponse', () => {
+  it('serves Scoot SIN-PER from fixtures, shifted to the requested date, Scoot legs only', () => {
+    const date = inDays(30);
+    const r = fixtureResponse({ from: 'SIN', to: 'PER', date }, 'TR', 'test')!;
+    expect(r.source).toBe('fixture');
+    expect(r.itineraries.length).toBeGreaterThanOrEqual(2);
+    for (const it of r.itineraries) {
+      expect(it.legs[0]!.from.time.startsWith(date)).toBe(true);
+      expect(it.legs.every((l) => l.flightNumber.startsWith('TR'))).toBe(true);
+    }
+  });
+  it('mirrors an outbound fixture for the return direction', () => {
+    const date = inDays(40);
+    const r = fixtureResponse({ from: 'NRT', to: 'SIN', date }, 'SQ', 'test')!;
+    expect(r.itineraries.length).toBeGreaterThan(0);
+    const it = r.itineraries[0]!;
+    expect(it.legs[0]!.from.code).toBe('NRT');
+    expect(it.legs[it.legs.length - 1]!.to.code).toBe('SIN');
+    expect(r.note).toMatch(/approximate/);
+  });
+});
+
+describe('handleFlights', () => {
+  const call = (qs: string, entity: 'SQ' | 'TR' = 'SQ') => handleFlights(new Request(`http://x/api/flights?${qs}`), { entity, env });
+  it('rejects routes outside the demo', async () => {
+    expect((await call(`from=SIN&to=LHR&date=${inDays(10)}`)).status).toBe(400);
+    expect((await call(`from=PER&to=NRT&date=${inDays(10)}`)).status).toBe(400);
+  });
+  it('rejects past dates and bad input', async () => {
+    expect((await call(`from=SIN&to=PER&date=2020-01-01`)).status).toBe(400);
+    expect((await call(`from=SIN&to=PER&date=tomorrow`)).status).toBe(400);
+  });
+  it('falls back to fixtures without a SerpAPI key', async () => {
+    const res = await call(`from=SIN&to=BKK&date=${inDays(14)}`, 'TR');
+    expect(res.status).toBe(200);
+    const body = (await res.json()) as { source: string; airline: string; itineraries: unknown[] };
+    expect(body).toMatchObject({ source: 'fixture', airline: 'TR' });
+    expect(body.itineraries.length).toBeGreaterThan(0);
+  });
+});
+
+describe('handleBrazeProfile', () => {
+  it('only accepts CEIDs', async () => {
+    const res = await handleBrazeProfile(new Request('http://x/api/braze/profile?external_id=someone@example.com'), { entity: 'SQ', env });
+    expect(res.status).toBe(400);
+  });
+  it('503 when REST is not configured', async () => {
+    const res = await handleBrazeProfile(new Request('http://x/api/braze/profile?external_id=ceid_test_0123456789abcdef'), { entity: 'SQ', env });
+    expect(res.status).toBe(503);
+  });
+});
+
+describe('misc', () => {
+  it('health never leaks values', async () => {
+    const body = await handleHealth(new Request('http://x/api/health'), { entity: 'TR', env: { SERPAPI_KEY: 'secret' } }).json();
+    expect(JSON.stringify(body)).not.toContain('secret');
+    expect(body).toMatchObject({ entity: 'TR', serpapi: true, brazeRest: false });
+  });
+  it('maskEmail', () => expect(maskEmail('zara@example.com')).toBe('z***@example.com'));
+});

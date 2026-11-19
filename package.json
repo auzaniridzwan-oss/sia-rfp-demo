@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "packageManager": "pnpm@9.15.4",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "turbo run dev",
     "dev:sq": "pnpm --filter @sia/sq-web dev",
@@ -12,11 +14,17 @@
     "build": "turbo run build",
     "typecheck": "turbo run typecheck",
     "lint": "eslint .",
-    "spike:serpapi": "tsx --env-file=.env scripts/serpapi-spike.ts"
+    "spike:serpapi": "tsx --env-file=.env scripts/serpapi-spike.ts",
+    "fixtures:index": "tsx scripts/gen-fixture-index.ts",
+    "dev:api": "tsx watch --env-file=.env scripts/dev-api.ts",
+    "test": "vitest run",
+    "schema:export": "tsx scripts/export-schema.ts",
+    "schema:check": "tsx scripts/export-schema.ts --check"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
     "@types/node": "^22.10.2",
+    "esbuild": "^0.24.2",
     "eslint": "^9.17.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.16",
@@ -24,6 +32,7 @@
     "tsx": "^4.19.2",
     "turbo": "^2.3.3",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.18.1"
+    "typescript-eslint": "^8.18.1",
+    "vitest": "^2.1.8"
   }
 }

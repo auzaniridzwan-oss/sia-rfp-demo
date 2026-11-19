@@ -1,0 +1,193 @@
+{
+  "generatedBy": "scripts/export-schema.ts",
+  "events": {
+    "sia_page_viewed": {
+      "source": "sdk",
+      "description": "Route change (decision D7: on by default).",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "page": "string"
+      }
+    },
+    "sia_searched_flight": {
+      "source": "sdk",
+      "description": "Flight search submitted. Loop 1 entry; Cross-Entity Searchers segment.",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "origin": "string",
+        "origin_code": "string",
+        "destination": "string",
+        "destination_code": "string",
+        "depart_date": "time",
+        "return_date": "time?",
+        "trip_type": "\"one_way\" | \"round_trip\"",
+        "cabin_class": "\"economy\" | \"premium_economy\" | \"business\" | \"scootplus\"",
+        "pax_count": "number"
+      }
+    },
+    "sia_selected_flight": {
+      "source": "sdk",
+      "description": "Fare chosen on the results page.",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "direction": "\"outbound\" | \"inbound\"",
+        "destination_code": "string",
+        "depart_date": "time",
+        "flight_number": "string",
+        "fare_family": "string",
+        "cabin_class": "\"economy\" | \"premium_economy\" | \"business\" | \"scootplus\"",
+        "fare_amount": "number",
+        "currency": "\"SGD\""
+      }
+    },
+    "sia_booking_step_viewed": {
+      "source": "sdk",
+      "description": "Booking funnel step entered (drop-off branching).",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "step": "\"passenger\" | \"ancillaries\" | \"seats\" | \"payment\"",
+        "destination_code": "string"
+      }
+    },
+    "sia_selected_ancillary": {
+      "source": "sdk",
+      "description": "Ancillary added in the booking flow or Manage Booking.",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "product_code": "string",
+        "category": "\"seat\" | \"baggage\" | \"meal\" | \"insurance\" | \"flex\" | \"upgrade\" | \"priority\" | \"wifi\" | \"retail\" | \"bundle\"",
+        "timing": "\"booking_only\" | \"post_booking\" | \"onboard\"",
+        "price": "number",
+        "loyalty_discount_applied": "boolean"
+      }
+    },
+    "sia_selected_seat": {
+      "source": "sdk",
+      "description": "Seat chosen.",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "seat_type": "\"standard\" | \"forward_zone\" | \"extra_legroom\" | \"solo\" | \"scootplus\"",
+        "seat_number": "string",
+        "price": "number",
+        "free_by_rule": "\"fare\" | \"tier\" | \"cabin\" | \"none\""
+      }
+    },
+    "sia_upgrade_requested": {
+      "source": "sdk",
+      "description": "mySQupgrade, miles upgrade or ScootPlus bid.",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "pnr": "string",
+        "upgrade_type": "\"mysqupgrade\" | \"miles\" | \"scootplus_bid\"",
+        "from_cabin": "\"economy\" | \"premium_economy\" | \"business\" | \"scootplus\"",
+        "to_cabin": "\"economy\" | \"premium_economy\" | \"business\" | \"scootplus\"",
+        "amount": "number"
+      }
+    },
+    "sia_payment_failed": {
+      "source": "sdk",
+      "description": "Mock payment declined.",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "reason": "string",
+        "fare_amount": "number"
+      }
+    },
+    "sia_booking_confirmed": {
+      "source": "sdk",
+      "description": "Payment success. Loop 1 Canvas exit; Loop 3.B entry.",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "pnr": "string",
+        "origin_code": "string",
+        "destination_code": "string",
+        "cabin_class": "\"economy\" | \"premium_economy\" | \"business\" | \"scootplus\"",
+        "depart_date": "time",
+        "return_date": "time?",
+        "fare_paid": "number",
+        "ancillaries_purchased": "string"
+      }
+    },
+    "sia_checkin_completed": {
+      "source": "sdk",
+      "description": "Manage Booking → Check in.",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "pnr": "string"
+      }
+    },
+    "sia_consent_updated": {
+      "source": "sdk",
+      "description": "One event per changed consent item. Loop 2 audit trail and Canvas trigger.",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "channel": "\"email\" | \"push\" | \"sms\" | \"in_app\"",
+        "communication_nature": "\"flight_status\" | \"news\" | \"promotions\" | \"offers\"",
+        "new_status": "\"opted_in\" | \"opted_out\"",
+        "source_system": "\"preference_center\" | \"registration\" | \"MKTDH\""
+      }
+    },
+    "sia_registration_completed": {
+      "source": "sdk",
+      "description": "Sign-up completed. Replaces the old \"Registration - Completed\" event.",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "has_krisflyer": "boolean",
+        "registration_source": "string"
+      }
+    },
+    "sia_app_error": {
+      "source": "sdk",
+      "description": "Client error surfaced by the logger (message only, no PII).",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "message": "string"
+      }
+    },
+    "sia_trip_completed": {
+      "source": "server",
+      "description": "Fired by the seed script / presenter panel.",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "pnr": "string",
+        "destination_code": "string"
+      }
+    },
+    "sia_loyalty_tier_changed": {
+      "source": "server",
+      "description": "Fired by the seed script / presenter panel.",
+      "properties": {
+        "entity": "\"SQ\" | \"TR\" | \"KRISPLUS\"",
+        "previous_tier": "string",
+        "new_tier": "string",
+        "change_date": "time"
+      }
+    }
+  },
+  "attributes": {
+    "sdk": {
+      "lastSearchOrigin": "sia_last_search_origin",
+      "lastSearchDestination": "sia_last_search_destination",
+      "lastSearchDepart": "sia_last_search_depart",
+      "lastSearchReturn": "sia_last_search_return",
+      "registeredEntities": "sia_registered_entities",
+      "krisflyerNumber": "krisflyer_number",
+      "preferenceMeals": "sia_preference_meals",
+      "preferenceSeats": "sia_preference_seats"
+    },
+    "rest": {
+      "consent": "sia_consent",
+      "nextTrip": "sia_next_trip",
+      "loyalty": "sia_loyalty",
+      "experimentGroup": "sia_experiment_group",
+      "channelAffinity": "sia_channel_affinity",
+      "processingRestricted": "sia_processing_restricted"
+    }
+  },
+  "aliasLabels": {
+    "SQ": "sq_customer_id",
+    "TR": "tr_customer_id",
+    "KRISPLUS": "krisplus_customer_id",
+    "krisflyer": "krisflyer"
+  }
+}
