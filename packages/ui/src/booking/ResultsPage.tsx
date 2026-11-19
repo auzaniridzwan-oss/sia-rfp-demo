@@ -112,7 +112,12 @@ function FlightList({ direction, onPicked }: { direction: 'outbound' | 'inbound'
         ))}
       </div>
 
-      {isLoading && <p className="py-10 text-center text-muted">Searching live {site.name} flights…</p>}
+      {isLoading && (
+        <div role="status" className="flex flex-col items-center gap-3 py-10 text-center text-muted">
+          <img src="/images/loading-plane.gif" alt="" width={150} height={112} className="h-28 w-auto" />
+          <p>Searching live {site.name} flights…</p>
+        </div>
+      )}
       {error && (
         <div className="rounded-card border border-border bg-surface p-5 text-sm">
           <p className="text-error">We couldn't load flights just now.</p>
